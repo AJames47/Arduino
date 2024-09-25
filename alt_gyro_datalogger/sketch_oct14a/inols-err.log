@@ -1,0 +1,578 @@
+
+
+
+
+
+
+
+Started logging.
+2021/09/02 21:53:18 logging to d:\arduino codes\alt_gyro_datalogger\sketch_oct14a\inols.log
+2021/09/02 21:53:18 Initial board configuration: {"Arduino Uno" arduino:avr:uno}
+2021/09/02 21:53:18 Language server build path: C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server605359791
+2021/09/02 21:53:18 Language server build sketch root: C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server605359791\sketch
+2021/09/02 21:53:18 [92mIDE --> LS     CL: REQUEST initialize 0: [0m
+2021/09/02 21:53:18 IDE --> initialize 0 [93m locked[0m
+2021/09/02 21:53:18 IDE --> initialize 0 [93m unlocked[0m
+2021/09/02 21:53:18 INIT--- initializing workbench
+2021/09/02 21:53:18 INIT--- [93m locked[0m
+2021/09/02 21:53:18 [91mIDE <-- LS     CL: ANSWER UNBOUND (0): [0m
+2021/09/02 21:53:18     --> initialize(file:///d%3A/arduino%20codes/alt_gyro_datalogger/sketch_oct14a)
+2021/09/02 21:53:18 running:  e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\arduino-cli.exe --config-file c:\Users\Anniesh\.arduinoIDE\arduino-cli.yaml compile --fqbn arduino:avr:uno --only-compilation-database --clean --source-override C:\Users\Anniesh\AppData\Local\Temp\832638530 --build-path C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server605359791 --format json D:\arduino codes\alt_gyro_datalogger\sketch_oct14a
+2021/09/02 21:53:18 [92mIDE --> LS     CL: NOTIFICATION initialized: [0m
+2021/09/02 21:53:20 arduino-cli output: {
+  "compiler_out": "",
+  "compiler_err": "",
+  "builder_result": {
+    "build_path": "C:\\Users\\Anniesh\\AppData\\Local\\Temp\\arduino-language-server605359791"
+  },
+  "success": false
+}
+
+2021/09/02 21:53:20 running:  e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\arduino-cli.exe --config-file c:\Users\Anniesh\.arduinoIDE\arduino-cli.yaml config dump --format json
+2021/09/02 21:53:20 Arduino Data Dir ->  C:\Users\Anniesh\AppData\Local\Arduino15
+2021/09/02 21:53:20     Starting clangd: e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\bin\clangd.exe -log=verbose --compile-commands-dir=C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server605359791 -query-driver=C:\Users\Anniesh\AppData\Local\Arduino15\packages\**
+2021/09/02 21:53:20 logging to d:\arduino codes\alt_gyro_datalogger\sketch_oct14a\inols-clangd.log
+2021/09/02 21:53:20 logging to d:\arduino codes\alt_gyro_datalogger\sketch_oct14a\inols-clangd-err.log
+2021/09/02 21:53:20 [91mIDE     LS --> CL: REQUEST initialize 0: [0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: ANSWER initialize 0 (0): [0m
+2021/09/02 21:53:20 [91mIDE     LS --> CL: NOTIFICATION initialized: [0m
+2021/09/02 21:53:20 INIT--- initializing workbench (done)
+2021/09/02 21:53:20 INIT--- [93m unlocked[0m
+2021/09/02 21:53:20 IDE --> initialized notif1 [93m read-locked[0m
+2021/09/02 21:53:20 IDE --> initialized notif1 notification is not propagated to clangd
+2021/09/02 21:53:20 IDE --> initialized notif1 [93m read-unlocked[0m
+2021/09/02 21:53:20 [92mIDE --> LS     CL: NOTIFICATION textDocument/didOpen: [0m
+2021/09/02 21:53:20 IDE --> textDocument/didOpen notif2 [93m locked[0m
+2021/09/02 21:53:20 IDE --> textDocument/didOpen notif2 (file:///d%3A/arduino%20codes/alt_gyro_datalogger/sketch_oct14a/sketch_oct14a.ino@1 as 'cpp')
+2021/09/02 21:53:20     increasing .ino tracked files count: 1
+2021/09/02 21:53:20 IDE --> textDocument/didOpen notif2 to clang: didOpen(file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp@1 as 'cpp')
+2021/09/02 21:53:20 IDE --> textDocument/didOpen notif2 sent to Clang
+2021/09/02 21:53:20 [91mIDE     LS --> CL: NOTIFICATION textDocument/didOpen: [0m
+2021/09/02 21:53:20 IDE --> textDocument/didOpen notif2 Queued resfreshing document symbols
+2021/09/02 21:53:20 IDE --> textDocument/didOpen notif2 [93m unlocked[0m
+2021/09/02 21:53:20 [92mIDE --> LS     CL: REQUEST textDocument/codeAction 1: [0m
+2021/09/02 21:53:20 SYLD--- [93m read-locked[0m
+2021/09/02 21:53:20 SYLD--- requesting documentSymbol for file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp
+2021/09/02 21:53:20 SYLD--- [93m read-unlocked[0m
+2021/09/02 21:53:20 IDE --> textDocument/codeAction 1 [93m read-locked[0m
+2021/09/02 21:53:20 [91mIDE     LS --> CL: REQUEST textDocument/documentSymbol 1: [0m
+2021/09/02 21:53:20 --> codeAction(file:///d%3A/arduino%20codes/alt_gyro_datalogger/sketch_oct14a/sketch_oct14a.ino:0:0)
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: REQUEST window/workDoneProgress/create 0: [0m
+2021/09/02 21:53:20 [91mIDE     LS --> CL: ANSWER UNBOUND (0): [0m
+2021/09/02 21:53:20 [91mIDE <-- LS     CL: REQUEST window/workDoneProgress/create 0: [0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress BEGIN indexing [0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 0/1 0%[0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 0/1 0%[0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress END [0m
+2021/09/02 21:53:20     --> codeAction(file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp:2:0)
+2021/09/02 21:53:20 IDE --> textDocument/codeAction 1 sent to Clang
+2021/09/02 21:53:20 [91mIDE     LS --> CL: REQUEST textDocument/codeAction 2: [0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: NOTIFICATION textDocument/publishDiagnostics: [0m
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 (queued)
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 [93m read-locked[0m
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 (running)
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 publishDiagnostics(file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp):
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 0:9 - 1: pp_file_not_found
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 8:0 - 1: unknown_typename
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 18:15 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 19:15 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 20:15 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 27:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 30:2 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 46:5 - 2: -Wparentheses
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 48:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 49:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 50:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 51:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 54:5 - 2: -Wparentheses
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 57:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 58:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 59:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 60:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: ANSWER textDocument/documentSymbol 1 (1): [0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: ANSWER textDocument/codeAction 2 (2): [0m
+2021/09/02 21:53:20 SYLD--- [93m read-locked[0m
+2021/09/02 21:53:20 SYLD---    symbol: Function setup 16:0-32:1
+2021/09/02 21:53:20 SYLD---      TRIMMED> void setup() 
+2021/09/02 21:53:20 SYLD---    symbol: Function loop 34:0-37:1
+2021/09/02 21:53:20 SYLD---      TRIMMED> void loop() 
+2021/09/02 21:53:20 SYLD---    symbol: Function ledstatus 44:0-63:1
+2021/09/02 21:53:20 SYLD---      TRIMMED> void ledstatus(int val1, int val2, int val3, int mes)
+2021/09/02 21:53:20 SYLD--- [93m read-unlocked[0m
+2021/09/02 21:53:20 SYLD--- (done)
+2021/09/02 21:53:20     <-- codeAction(0 elements)
+2021/09/02 21:53:20 <-- codeAction(0 elements)
+2021/09/02 21:53:20 IDE --> textDocument/codeAction 1 [93m read-unlocked[0m
+2021/09/02 21:53:20 [91mIDE <-- LS     CL: ANSWER UNBOUND (1): [0m
+2021/09/02 21:53:20 [92mIDE --> LS     CL: ANSWER window/workDoneProgress/create 0 (0): [0m
+2021/09/02 21:53:20 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress BEGIN indexing [0m
+2021/09/02 21:53:20 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress END [0m
+2021/09/02 21:53:20     URI: converted 0:9-0:20 to /not-ino:0:9-0:20
+2021/09/02 21:53:20     URI: converted 8:0-8:6 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:6:0-6:6
+2021/09/02 21:53:20     URI: converted 18:15-18:21 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:16:15-16:21
+2021/09/02 21:53:20     URI: converted 19:15-19:21 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:17:15-17:21
+2021/09/02 21:53:20     URI: converted 20:15-20:21 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:18:15-18:21
+2021/09/02 21:53:20     URI: converted 27:4-27:13 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:25:4-25:13
+2021/09/02 21:53:20     URI: converted 30:2-30:11 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:28:2-28:11
+2021/09/02 21:53:20     URI: converted 46:5-46:14 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:44:5-44:14
+2021/09/02 21:53:20     URI: converted 48:4-48:16 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:46:4-46:16
+2021/09/02 21:53:20     URI: converted 49:4-49:16 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:47:4-47:16
+2021/09/02 21:53:20     URI: converted 50:4-50:16 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:48:4-48:16
+2021/09/02 21:53:20     URI: converted 51:4-51:9 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:49:4-49:9
+2021/09/02 21:53:20     URI: converted 54:5-54:14 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:52:5-52:14
+2021/09/02 21:53:20     URI: converted 57:4-57:16 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:55:4-55:16
+2021/09/02 21:53:20     URI: converted 58:4-58:16 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:56:4-56:16
+2021/09/02 21:53:20     URI: converted 59:4-59:16 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:57:4-57:16
+2021/09/02 21:53:20     URI: converted 60:4-60:9 to D:\arduino codes\alt_gyro_datalogger\sketch_oct14a\sketch_oct14a.ino:58:4-58:9
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 to IDE: publishDiagnostics(file:///d%3A/arduino%20codes/alt_gyro_datalogger/sketch_oct14a/sketch_oct14a.ino):
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 6:0 - 1: unknown_typename
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 16:15 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 17:15 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 18:15 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 25:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 28:2 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 44:5 - 2: -Wparentheses
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 46:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 47:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 48:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 49:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 52:5 - 2: -Wparentheses
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 55:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 56:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 57:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 > 58:4 - 1: undeclared_var_use
+2021/09/02 21:53:20 [91mIDE <-- LS     CL: NOTIFICATION textDocument/publishDiagnostics: [0m
+2021/09/02 21:53:20 CLG <-- textDocument/publishDiagnostics notif5 [93m read-unlocked[0m
+2021/09/02 21:53:20 [92mIDE --> LS     CL: REQUEST textDocument/codeAction 2: [0m
+2021/09/02 21:53:20 IDE --> textDocument/codeAction 2 [93m read-locked[0m
+2021/09/02 21:53:20 --> codeAction(file:///d%3A/arduino%20codes/alt_gyro_datalogger/sketch_oct14a/sketch_oct14a.ino:0:0)
+2021/09/02 21:53:20     --> codeAction(file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp:2:0)
+2021/09/02 21:53:20 IDE --> textDocument/codeAction 2 sent to Clang
+2021/09/02 21:53:20 [91mIDE     LS --> CL: REQUEST textDocument/codeAction 3: [0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: ANSWER textDocument/codeAction 3 (3): [0m
+2021/09/02 21:53:20 IDE --> textDocument/codeAction 2 Queued check document symbols
+2021/09/02 21:53:20 SYCK--- [93m read-locked[0m
+2021/09/02 21:53:20 SYCK--- requesting documentSymbol for file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp
+2021/09/02 21:53:20 SYCK--- [93m read-unlocked[0m
+2021/09/02 21:53:20 [91mIDE     LS --> CL: REQUEST textDocument/documentSymbol 4: [0m
+2021/09/02 21:53:20     <-- codeAction(0 elements)
+2021/09/02 21:53:20 <-- codeAction(0 elements)
+2021/09/02 21:53:20 IDE --> textDocument/codeAction 2 [93m read-unlocked[0m
+2021/09/02 21:53:20 [91mIDE <-- LS     CL: ANSWER UNBOUND (2): [0m
+2021/09/02 21:53:20 [92mIDE     LS <-- CL: ANSWER textDocument/documentSymbol 4 (4): [0m
+2021/09/02 21:53:20 SYCK--- [93m read-locked[0m
+2021/09/02 21:53:20 SYCK---    symbol: Function setup 16:0-32:1
+2021/09/02 21:53:20 SYCK---      TRIMMED> void setup() 
+2021/09/02 21:53:20 SYCK---    symbol: Function loop 34:0-37:1
+2021/09/02 21:53:20 SYCK---      TRIMMED> void loop() 
+2021/09/02 21:53:20 SYCK---    symbol: Function ledstatus 44:0-63:1
+2021/09/02 21:53:20 SYCK---      TRIMMED> void ledstatus(int val1, int val2, int val3, int mes)
+2021/09/02 21:53:20 SYCK--- [93m read-unlocked[0m
+2021/09/02 21:53:20 SYCK--- (done)
+2021/09/02 21:53:23 [92mIDE --> LS     CL: REQUEST shutdown 3: [0m
+2021/09/02 21:53:23 IDE --> shutdown 3 [93m read-locked[0m
+2021/09/02 21:53:23 IDE --> shutdown 3 sent to Clang
+2021/09/02 21:53:23 [91mIDE     LS --> CL: REQUEST shutdown 5: [0m
+2021/09/02 21:53:23 [92mIDE     LS <-- CL: ANSWER shutdown 5 (5): [0m
+2021/09/02 21:53:23 IDE --> shutdown 3 [93m read-unlocked[0m
+2021/09/02 21:53:23 [91mIDE <-- LS     CL: ANSWER UNBOUND (3): [0m
+2021/09/02 21:53:23 [92mIDE --> LS     CL: NOTIFICATION exit: [0m
+2021/09/02 21:53:23 IDE --> exit notif3 [93m read-locked[0m
+2021/09/02 21:53:23 IDE --> exit notif3 sent to Clang
+2021/09/02 21:53:23 [91mIDE     LS --> CL: NOTIFICATION exit: [0m
+2021/09/02 21:53:23 IDE --> exit notif3 [93m read-unlocked[0m
+2021/09/02 21:53:23 Lost connection with clangd!
+2021/09/02 21:53:23 removing buildpath
+
+
+
+
+
+
+
+Started logging.
+2021/09/12 01:22:15 logging to d:\arduino codes\alt_gyro_datalogger\sketch_oct14a\inols.log
+2021/09/12 01:22:15 Initial board configuration: {"Arduino Uno" arduino:avr:uno}
+2021/09/12 01:22:15 Language server build path: C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server923849939
+2021/09/12 01:22:15 Language server build sketch root: C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server923849939\sketch
+2021/09/12 01:22:15 [92mIDE --> LS     CL: REQUEST initialize 0: [0m
+2021/09/12 01:22:15 IDE --> initialize 0 [93m locked[0m
+2021/09/12 01:22:15 IDE --> initialize 0 [93m unlocked[0m
+2021/09/12 01:22:15 INIT--- initializing workbench
+2021/09/12 01:22:15 INIT--- [93m locked[0m
+2021/09/12 01:22:15     --> initialize(file:///d%3A/arduino%20codes/alt_gyro_datalogger/sketch_oct14a)
+2021/09/12 01:22:15 [91mIDE <-- LS     CL: ANSWER UNBOUND (0): [0m
+2021/09/12 01:22:15 running:  e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\arduino-cli.exe --config-file c:\Users\Anniesh\.arduinoIDE\arduino-cli.yaml compile --fqbn arduino:avr:uno --only-compilation-database --clean --source-override C:\Users\Anniesh\AppData\Local\Temp\077458966 --build-path C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server923849939 --format json D:\arduino codes\alt_gyro_datalogger\sketch_oct14a
+2021/09/12 01:22:15 [92mIDE --> LS     CL: NOTIFICATION initialized: [0m
+2021/09/12 01:22:17 arduino-cli output: {
+  "compiler_out": "",
+  "compiler_err": "",
+  "builder_result": {
+    "build_path": "C:\\Users\\Anniesh\\AppData\\Local\\Temp\\arduino-language-server923849939",
+    "used_libraries": [
+      {
+        "name": "SPI",
+        "author": "Arduino",
+        "maintainer": "Arduino \u003cinfo@arduino.cc\u003e",
+        "sentence": "Enables the communication with devices that use the Serial Peripheral Interface (SPI) Bus.",
+        "paragraph": "SPI is a synchronous serial data protocol used by microcontrollers for communicating with one or more peripheral devices quickly over short distances. It uses three lines common to all devices (MISO, MOSI and SCK) and one specific for each device.",
+        "website": "http://www.arduino.cc/en/Reference/SPI",
+        "category": "Communication",
+        "architectures": [
+          "avr"
+        ],
+        "install_dir": "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\SPI",
+        "source_dir": "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\SPI\\src",
+        "container_platform": "arduino:avr@1.8.3",
+        "real_name": "SPI",
+        "version": "1.0",
+        "license": "Unspecified",
+        "location": 2,
+        "layout": 1,
+        "examples": [
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\SPI\\examples\\BarometricPressureSensor",
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\SPI\\examples\\DigitalPotControl"
+        ],
+        "provides_includes": [
+          "SPI.h"
+        ]
+      },
+      {
+        "name": "SD",
+        "author": "Arduino, SparkFun",
+        "maintainer": "Arduino \u003cinfo@arduino.cc\u003e",
+        "sentence": "Enables reading and writing on SD cards.",
+        "paragraph": "Once an SD memory card is connected to the SPI interface of the Arduino or Genuino board you can create files and read/write on them. You can also move through directories on the SD card.",
+        "website": "http://www.arduino.cc/en/Reference/SD",
+        "category": "Data Storage",
+        "architectures": [
+          "*"
+        ],
+        "install_dir": "D:\\games\\arduino-1.8.15\\libraries\\SD",
+        "source_dir": "D:\\games\\arduino-1.8.15\\libraries\\SD\\src",
+        "real_name": "SD",
+        "version": "1.2.4",
+        "license": "Unspecified",
+        "layout": 1,
+        "examples": [
+          "D:\\games\\arduino-1.8.15\\libraries\\SD\\examples\\CardInfo",
+          "D:\\games\\arduino-1.8.15\\libraries\\SD\\examples\\Datalogger",
+          "D:\\games\\arduino-1.8.15\\libraries\\SD\\examples\\DumpFile",
+          "D:\\games\\arduino-1.8.15\\libraries\\SD\\examples\\Files",
+          "D:\\games\\arduino-1.8.15\\libraries\\SD\\examples\\NonBlockingWrite",
+          "D:\\games\\arduino-1.8.15\\libraries\\SD\\examples\\ReadWrite",
+          "D:\\games\\arduino-1.8.15\\libraries\\SD\\examples\\listfiles"
+        ],
+        "provides_includes": [
+          "SD.h"
+        ]
+      },
+      {
+        "name": "Wire",
+        "author": "Arduino",
+        "maintainer": "Arduino \u003cinfo@arduino.cc\u003e",
+        "sentence": "This library allows you to communicate with I2C and Two Wire Interface devices.",
+        "paragraph": "It allows the communication with I2C devices like temperature sensors, realtime clocks and many others using SDA (Data Line) and SCL (Clock Line).",
+        "website": "http://www.arduino.cc/en/Reference/Wire",
+        "category": "Communication",
+        "architectures": [
+          "avr"
+        ],
+        "install_dir": "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire",
+        "source_dir": "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\src",
+        "container_platform": "arduino:avr@1.8.3",
+        "real_name": "Wire",
+        "version": "1.0",
+        "license": "Unspecified",
+        "location": 2,
+        "layout": 1,
+        "examples": [
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\examples\\SFRRanger_reader",
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\examples\\digital_potentiometer",
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\examples\\i2c_scanner",
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\examples\\master_reader",
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\examples\\master_writer",
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\examples\\slave_receiver",
+          "C:\\Users\\Anniesh\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\examples\\slave_sender"
+        ],
+        "provides_includes": [
+          "Wire.h"
+        ]
+      },
+      {
+        "name": "I2C-Sensor-Lib_iLib",
+        "author": "Ingmar Splitt",
+        "maintainer": "Ingmar Splitt",
+        "sentence": "Library for i2c-sensors and some other specific functions (fast eFn, HDLC, SpektrumSerial).",
+        "paragraph": "The following sensors can be used with an uniform interface: Austria Microsystems TCS3772 light sensor - RGB and clear, Silicon Labs SI7021 humidity sensor, Invensense MPU9250 9DOF - 3 axis acceleration and gyro PLUS AK8963-IC with magnetic-field sensor, Freescale MPL3115A2 pressure, Maxim MAX44009 ambient and lux with incredible wide dynamic, NXP PCF2127 Realtime-Clock with 2ppm, Bosch BMP280 pressure, ST L3G-Series 3 axis gyro / angular rate, Freescale MAG3110 3 axis Compass / Magnetic field, Freescale MMA8451 3 axis acceleration, Fairchild FAN5421 Single-Cell Li-Ion Switching Charger, STM LPS331 Pressure Sensor, Maxim MAX17047 Fuel Gauge for various Cells",
+        "website": "https://github.com/orgua/iLib",
+        "category": "Sensors",
+        "architectures": [
+          "*"
+        ],
+        "install_dir": "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib",
+        "source_dir": "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\src",
+        "real_name": "I2C-Sensor-Lib iLib",
+        "version": "0.8.2",
+        "license": "Unspecified",
+        "location": 1,
+        "layout": 1,
+        "examples": [
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\WS2812B_Clock_90Led",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\atmel_math_power_and_scale",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\firstrun_ledBlink",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_BMP280",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_L3G",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_LPS331",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_MAG3110",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_MAX44009",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_MMA8451",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_MPL3115A2",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_MPU9250",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_PCF2127",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_SI7021",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_TCS3772",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\i2c_probeBus",
+          "C:\\Users\\Anniesh\\Documents\\Arduino\\libraries\\I2C-Sensor-Lib_iLib\\examples\\spi_rfm95"
+        ],
+        "provides_includes": [
+          "WS2812B.h",
+          "atmel_eFunction.h",
+          "atmel_hdlc.h",
+          "atmel_math_power_and_scale.h",
+          "atmel_spektrumSerial.h",
+          "atmel_vcc.h",
+          "i2c.h",
+          "i2c_BMP280.h",
+          "i2c_FAN5421.h",
+          "i2c_L3G.h",
+          "i2c_LPS331.h",
+          "i2c_MAG3110.h",
+          "i2c_MAX17047.h",
+          "i2c_MAX44009.h",
+          "i2c_MMA8451.h",
+          "i2c_MPL3115A2.h",
+          "i2c_MPU9250.h",
+          "i2c_PCF2127.h",
+          "i2c_PRESET.h",
+          "i2c_SI7021.h",
+          "i2c_Sensor.h",
+          "i2c_TCS3772.h",
+          "spi_rfm95.h"
+        ]
+      }
+    ]
+  },
+  "success": true
+}
+
+2021/09/12 01:22:17 running:  e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\arduino-cli.exe --config-file c:\Users\Anniesh\.arduinoIDE\arduino-cli.yaml config dump --format json
+2021/09/12 01:22:18 Arduino Data Dir ->  C:\Users\Anniesh\AppData\Local\Arduino15
+2021/09/12 01:22:18     Starting clangd: e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\bin\clangd.exe -log=verbose --compile-commands-dir=C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server923849939 -query-driver=C:\Users\Anniesh\AppData\Local\Arduino15\packages\**
+2021/09/12 01:22:18 logging to d:\arduino codes\alt_gyro_datalogger\sketch_oct14a\inols-clangd.log
+2021/09/12 01:22:18 logging to d:\arduino codes\alt_gyro_datalogger\sketch_oct14a\inols-clangd-err.log
+2021/09/12 01:22:18 [91mIDE     LS --> CL: REQUEST initialize 0: [0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: ANSWER initialize 0 (0): [0m
+2021/09/12 01:22:18 [91mIDE     LS --> CL: NOTIFICATION initialized: [0m
+2021/09/12 01:22:18 INIT--- initializing workbench (done)
+2021/09/12 01:22:18 INIT--- [93m unlocked[0m
+2021/09/12 01:22:18 IDE --> initialized notif1 [93m read-locked[0m
+2021/09/12 01:22:18 IDE --> initialized notif1 notification is not propagated to clangd
+2021/09/12 01:22:18 IDE --> initialized notif1 [93m read-unlocked[0m
+2021/09/12 01:22:18 [92mIDE --> LS     CL: NOTIFICATION textDocument/didOpen: [0m
+2021/09/12 01:22:18 IDE --> textDocument/didOpen notif2 [93m locked[0m
+2021/09/12 01:22:18 IDE --> textDocument/didOpen notif2 (file:///d%3A/arduino%20codes/alt_gyro_datalogger/sketch_oct14a/sketch_oct14a.ino@1 as 'cpp')
+2021/09/12 01:22:18     increasing .ino tracked files count: 1
+2021/09/12 01:22:18 IDE --> textDocument/didOpen notif2 to clang: didOpen(file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch/sketch_oct14a.ino.cpp@1 as 'cpp')
+2021/09/12 01:22:18 IDE --> textDocument/didOpen notif2 sent to Clang
+2021/09/12 01:22:18 [91mIDE     LS --> CL: NOTIFICATION textDocument/didOpen: [0m
+2021/09/12 01:22:18 IDE --> textDocument/didOpen notif2 Queued resfreshing document symbols
+2021/09/12 01:22:18 IDE --> textDocument/didOpen notif2 [93m unlocked[0m
+2021/09/12 01:22:18 [92mIDE --> LS     CL: REQUEST textDocument/codeAction 1: [0m
+2021/09/12 01:22:18 IDE --> textDocument/codeAction 1 [93m read-locked[0m
+2021/09/12 01:22:18 --> codeAction(file:///d%3A/arduino%20codes/alt_gyro_datalogger/sketch_oct14a/sketch_oct14a.ino:0:0)
+2021/09/12 01:22:18 SYLD--- [93m read-locked[0m
+2021/09/12 01:22:18 SYLD--- requesting documentSymbol for file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch/sketch_oct14a.ino.cpp
+2021/09/12 01:22:18 SYLD--- [93m read-unlocked[0m
+2021/09/12 01:22:18 [91mIDE     LS --> CL: REQUEST textDocument/documentSymbol 1: [0m
+2021/09/12 01:22:18     --> codeAction(file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch/sketch_oct14a.ino.cpp:2:0)
+2021/09/12 01:22:18 IDE --> textDocument/codeAction 1 sent to Clang
+2021/09/12 01:22:18 [91mIDE     LS --> CL: REQUEST textDocument/codeAction 2: [0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: REQUEST window/workDoneProgress/create 0: [0m
+2021/09/12 01:22:18 [91mIDE     LS --> CL: ANSWER UNBOUND (0): [0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: REQUEST window/workDoneProgress/create 0: [0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress BEGIN indexing [0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 0/1 0%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 0/35 0%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 0/35 0%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 0/35 0%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 0/35 0%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 1/35 2.857142857142857%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 1/35 2.857142857142857%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 2/35 5.714285714285714%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 2/35 5.714285714285714%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 3/35 8.571428571428571%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 3/35 8.571428571428571%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION textDocument/publishDiagnostics: [0m
+2021/09/12 01:22:18 CLG <-- textDocument/publishDiagnostics notif13 (queued)
+2021/09/12 01:22:18 CLG <-- textDocument/publishDiagnostics notif13 [93m read-locked[0m
+2021/09/12 01:22:18 CLG <-- textDocument/publishDiagnostics notif13 (running)
+2021/09/12 01:22:18 CLG <-- textDocument/publishDiagnostics notif13 publishDiagnostics(file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch/sketch_oct14a.ino.cpp):
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: ANSWER textDocument/documentSymbol 1 (1): [0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: ANSWER textDocument/codeAction 2 (2): [0m
+2021/09/12 01:22:18 CLG <-- textDocument/publishDiagnostics notif13 [93m read-unlocked[0m
+2021/09/12 01:22:18 SYLD--- [93m read-locked[0m
+2021/09/12 01:22:18 SYLD---    symbol: Function setup 17:0-17:12
+2021/09/12 01:22:18 SYLD---             > void setup()
+2021/09/12 01:22:18 SYLD---    symbol: Function loop 19:0-19:11
+2021/09/12 01:22:18 SYLD---             > void loop()
+2021/09/12 01:22:18 SYLD---    symbol: Function ledstatus 21:0-21:53
+2021/09/12 01:22:18 SYLD---             > void ledstatus(int val1, int val2, int val3, int mes)
+2021/09/12 01:22:18 SYLD---    symbol: Function setup 23:0-39:1
+2021/09/12 01:22:18 SYLD---      TRIMMED> void setup() 
+2021/09/12 01:22:18 SYLD---    symbol: Function loop 41:0-44:1
+2021/09/12 01:22:18 SYLD---      TRIMMED> void loop() 
+2021/09/12 01:22:18 SYLD---    symbol: Function ledstatus 51:0-70:1
+2021/09/12 01:22:18 SYLD---      TRIMMED> void ledstatus(int val1, int val2, int val3, int mes)
+2021/09/12 01:22:18 SYLD--- [93m read-unlocked[0m
+2021/09/12 01:22:18 SYLD--- (done)
+2021/09/12 01:22:18     <-- codeAction(0 elements)
+2021/09/12 01:22:18 <-- codeAction(0 elements)
+2021/09/12 01:22:18 IDE --> textDocument/codeAction 1 [93m read-unlocked[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: ANSWER UNBOUND (1): [0m
+2021/09/12 01:22:18 [92mIDE --> LS     CL: ANSWER window/workDoneProgress/create 0 (0): [0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress BEGIN indexing [0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 3/35 8.571428571428571%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 4/35 11.428571428571429%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 4/35 11.428571428571429%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 4/35 11.428571428571429%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 4/35 11.428571428571429%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 5/35 14.285714285714286%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 5/35 14.285714285714286%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 5/35 14.285714285714286%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 5/35 14.285714285714286%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 6/35 17.142857142857142%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 6/35 17.142857142857142%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 6/35 17.142857142857142%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 6/35 17.142857142857142%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 7/35 20%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 7/35 20%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 7/35 20%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 7/35 20%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 8/35 22.857142857142858%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 8/35 22.857142857142858%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 8/35 22.857142857142858%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 8/35 22.857142857142858%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 9/35 25.714285714285715%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 9/35 25.714285714285715%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 9/35 25.714285714285715%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 9/35 25.714285714285715%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 10/35 28.571428571428573%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 10/35 28.571428571428573%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 10/35 28.571428571428573%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 10/35 28.571428571428573%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 11/35 31.428571428571427%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 11/35 31.428571428571427%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 11/35 31.428571428571427%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 11/35 31.428571428571427%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 12/35 34.285714285714285%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 12/35 34.285714285714285%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 12/35 34.285714285714285%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 12/35 34.285714285714285%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 13/35 37.142857142857146%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 13/35 37.142857142857146%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 13/35 37.142857142857146%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 13/35 37.142857142857146%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 14/35 40%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 14/35 40%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 14/35 40%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 14/35 40%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 15/35 42.857142857142854%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 15/35 42.857142857142854%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 15/35 42.857142857142854%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 15/35 42.857142857142854%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 16/35 45.714285714285715%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 16/35 45.714285714285715%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 16/35 45.714285714285715%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 16/35 45.714285714285715%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 17/35 48.57142857142857%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 17/35 48.57142857142857%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 17/35 48.57142857142857%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 17/35 48.57142857142857%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 18/35 51.42857142857143%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 18/35 51.42857142857143%[0m
+2021/09/12 01:22:18 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 18/35 51.42857142857143%[0m
+2021/09/12 01:22:18 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 18/35 51.42857142857143%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 19/35 54.285714285714285%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 19/35 54.285714285714285%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 19/35 54.285714285714285%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 19/35 54.285714285714285%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 20/35 57.142857142857146%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 20/35 57.142857142857146%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 20/35 57.142857142857146%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 21/35 60%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 21/35 60%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 21/35 60%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 21/35 60%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 22/35 62.857142857142854%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 22/35 62.857142857142854%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 22/35 62.857142857142854%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 22/35 62.857142857142854%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 23/35 65.71428571428571%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 23/35 65.71428571428571%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 23/35 65.71428571428571%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 23/35 65.71428571428571%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 24/35 68.57142857142857%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 24/35 68.57142857142857%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 24/35 68.57142857142857%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 24/35 68.57142857142857%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 25/35 71.42857142857143%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 25/35 71.42857142857143%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 25/35 71.42857142857143%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 25/35 71.42857142857143%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 26/35 74.28571428571429%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 26/35 74.28571428571429%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 26/35 74.28571428571429%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 26/35 74.28571428571429%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 27/35 77.14285714285714%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 27/35 77.14285714285714%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 27/35 77.14285714285714%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 27/35 77.14285714285714%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 28/35 80%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 28/35 80%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 28/35 80%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 28/35 80%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 29/35 82.85714285714286%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 29/35 82.85714285714286%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 29/35 82.85714285714286%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 29/35 82.85714285714286%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 30/35 85.71428571428571%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 30/35 85.71428571428571%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 30/35 85.71428571428571%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 30/35 85.71428571428571%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 31/35 88.57142857142857%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 31/35 88.57142857142857%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 31/35 88.57142857142857%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 31/35 88.57142857142857%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 32/35 91.42857142857143%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 32/35 91.42857142857143%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 33/35 94.28571428571429%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 33/35 94.28571428571429%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 34/35 97.14285714285714%[0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress REPORT 34/35 97.14285714285714%[0m
+2021/09/12 01:22:19 [92mIDE     LS <-- CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress END [0m
+2021/09/12 01:22:19 [91mIDE <-- LS     CL: NOTIFICATION $/progress: TOKEN=backgroundIndexProgress END [0m
+2021/09/12 01:22:20 [92mIDE --> LS     CL: REQUEST shutdown 2: [0m
+2021/09/12 01:22:20 IDE --> shutdown 2 [93m read-locked[0m
+2021/09/12 01:22:20 IDE --> shutdown 2 sent to Clang
+2021/09/12 01:22:20 [91mIDE     LS --> CL: REQUEST shutdown 3: [0m
+2021/09/12 01:22:20 [92mIDE     LS <-- CL: ANSWER shutdown 3 (3): [0m
+2021/09/12 01:22:20 IDE --> shutdown 2 [93m read-unlocked[0m
+2021/09/12 01:22:20 [91mIDE <-- LS     CL: ANSWER UNBOUND (2): [0m
+2021/09/12 01:22:20 [92mIDE --> LS     CL: NOTIFICATION exit: [0m
+2021/09/12 01:22:20 IDE --> exit notif3 [93m read-locked[0m
+2021/09/12 01:22:20 IDE --> exit notif3 sent to Clang
+2021/09/12 01:22:20 [91mIDE     LS --> CL: NOTIFICATION exit: [0m
+2021/09/12 01:22:20 IDE --> exit notif3 [93m read-unlocked[0m
+2021/09/12 01:22:20 Lost connection with clangd!
+2021/09/12 01:22:20 removing buildpath

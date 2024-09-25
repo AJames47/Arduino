@@ -1,0 +1,282 @@
+
+
+
+
+
+
+
+Started logging.
+
+>>>
+Content-Length: 2167
+
+{"method":"initialize","params":{"processId":23816,"rootPath":"C:\\Users\\Anniesh\\AppData\\Local\\Temp\\arduino-language-server605359791\\sketch","rootUri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch","clientInfo":{"name":"vscode","version":"1.50.0"},"trace":"off","initializationOptions":{},"capabilities":{"workspace":{"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"]},"applyEdit":true,"symbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"executeCommand":{"dynamicRegistration":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"workspaceFolders":true,"configuration":true},"textDocument":{"declaration":{"linkSupport":true},"definition":{"linkSupport":true},"implementation":{"linkSupport":true,"dynamicRegistration":true},"typeDefinition":{"linkSupport":true},"synchronization":{"willSave":true,"didSave":true,"willSaveWaitUntil":true},"documentSymbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]},"hierarchicalDocumentSymbolSupport":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"codeAction":{"dynamicRegistration":true,"isPreferredSupport":true,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}}},"completion":{"completionItem":{"documentationFormat":["markdown","plaintext"],"snippetSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"signatureHelp":{"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true}}},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"hover":{"contentFormat":["markdown","plaintext"]},"foldingRange":{"dynamicRegistration":true,"rangeLimit":5000,"lineFoldingOnly":true},"colorProvider":{"dynamicRegistration":true}},"window":{"workDoneProgress":true}}},"id":0,"jsonrpc":"2.0"}
+<<<
+Content-Length: 1671
+
+{"id":0,"jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":[],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","enum","enumMember","type","dependent","dependent","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)"}}}
+>>>
+Content-Length: 52
+
+{"method":"initialized","params":{},"jsonrpc":"2.0"}Content-Length: 1336
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp","languageId":"cpp","version":1,"text":"#include \u003cArduino.h\u003e\n#line 1 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\sketch_oct14a\\\\sketch_oct14a.ino\"\n#include \u003cSPI.h\u003e\r\n#include \u003cSD.h\u003e\r\n#include \u003cWire.h\u003e\r\n#include \"i2c.h\"\r\n\r\n#include \"i2c_BMP280.h\"\r\nBMP280 bmp280;\r\n\r\n\r\nconst int ledr = 3;\r\nconst int ledg = 5;\r\nconst int ledb = 6;\r\n\r\n\r\nvoid setup() \r\n{\r\n  pinMode(ledr,OUTPUT);\r\n  pinMode(ledg,OUTPUT);\r\n  pinMode(ledb,OUTPUT);\r\n  \r\n  \r\n  \r\n  \r\n  if (bmp280.initialize())\r\n  {\r\n    ledstatus(10,237,245,100);\r\n  }\r\n  else\r\n  ledstatus(9,147,228,404);\r\n\r\n}\r\n\r\nvoid loop() {\r\n \r\n\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\nvoid ledstatus(int val1, int val2, int val3, int mes)\r\n{ int n = 10;\r\n  if(mes = 404){\r\n    while(n!=0){\r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(500);\r\n    n--;\r\n  }}\r\n  if(mes = 100)\r\n  {\r\n   \r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(2000);\r\n  \r\n}\r\n}\r\n\n"}},"jsonrpc":"2.0"}Content-Length: 205
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp"}},"id":1,"jsonrpc":"2.0"}
+<<<
+Content-Length: 111
+
+{"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+>>>
+Content-Length: 38
+
+{"id":0,"result":null,"jsonrpc":"2.0"}
+<<<
+Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 107
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}
+>>>
+Content-Length: 304
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":2,"jsonrpc":"2.0"}
+<<<
+Content-Length: 3491
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"pp_file_not_found","message":"'Arduino.h' file not found","range":{"end":{"character":20,"line":0},"start":{"character":9,"line":0}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'BMP280'","range":{"end":{"character":6,"line":8},"start":{"character":0,"line":8}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":18},"start":{"character":15,"line":18}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":19},"start":{"character":15,"line":19}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":20},"start":{"character":15,"line":20}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":27},"start":{"character":4,"line":27}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":30},"start":{"character":2,"line":30}},"severity":1,"source":"clang"},{"code":"-Wparentheses","message":"Using the result of an assignment as a condition without parentheses (fixes available)","range":{"end":{"character":14,"line":46},"start":{"character":5,"line":46}},"severity":2,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'digitalWrite'","range":{"end":{"character":16,"line":48},"start":{"character":4,"line":48}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'digitalWrite'","range":{"end":{"character":16,"line":49},"start":{"character":4,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'digitalWrite'","range":{"end":{"character":16,"line":50},"start":{"character":4,"line":50}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'delay'","range":{"end":{"character":9,"line":51},"start":{"character":4,"line":51}},"severity":1,"source":"clang"},{"code":"-Wparentheses","message":"Using the result of an assignment as a condition without parentheses (fixes available)","range":{"end":{"character":14,"line":54},"start":{"character":5,"line":54}},"severity":2,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'digitalWrite'","range":{"end":{"character":16,"line":57},"start":{"character":4,"line":57}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'digitalWrite'","range":{"end":{"character":16,"line":58},"start":{"character":4,"line":58}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'digitalWrite'","range":{"end":{"character":16,"line":59},"start":{"character":4,"line":59}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'delay'","range":{"end":{"character":9,"line":60},"start":{"character":4,"line":60}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp","version":1}}Content-Length: 1361
+
+{"id":1,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":8},"start":{"character":0,"line":8}},"selectionRange":{"end":{"character":13,"line":8},"start":{"character":7,"line":8}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":14,"line":11},"start":{"character":10,"line":11}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":12},"start":{"character":0,"line":12}},"selectionRange":{"end":{"character":14,"line":12},"start":{"character":10,"line":12}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":13},"start":{"character":0,"line":13}},"selectionRange":{"end":{"character":14,"line":13},"start":{"character":10,"line":13}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":32},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":10,"line":16},"start":{"character":5,"line":16}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":37},"start":{"character":0,"line":34}},"selectionRange":{"end":{"character":9,"line":34},"start":{"character":5,"line":34}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":63},"start":{"character":0,"line":44}},"selectionRange":{"end":{"character":14,"line":44},"start":{"character":5,"line":44}}}]}Content-Length: 36
+
+{"id":2,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 304
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":3,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":3,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 205
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server605359791/sketch/sketch_oct14a.ino.cpp"}},"id":4,"jsonrpc":"2.0"}
+<<<
+Content-Length: 1361
+
+{"id":4,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":8},"start":{"character":0,"line":8}},"selectionRange":{"end":{"character":13,"line":8},"start":{"character":7,"line":8}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":14,"line":11},"start":{"character":10,"line":11}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":12},"start":{"character":0,"line":12}},"selectionRange":{"end":{"character":14,"line":12},"start":{"character":10,"line":12}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":13},"start":{"character":0,"line":13}},"selectionRange":{"end":{"character":14,"line":13},"start":{"character":10,"line":13}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":32},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":10,"line":16},"start":{"character":5,"line":16}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":37},"start":{"character":0,"line":34}},"selectionRange":{"end":{"character":9,"line":34},"start":{"character":5,"line":34}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":63},"start":{"character":0,"line":44}},"selectionRange":{"end":{"character":14,"line":44},"start":{"character":5,"line":44}}}]}
+>>>
+Content-Length: 58
+
+{"method":"shutdown","params":null,"id":5,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":5,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 47
+
+{"method":"exit","params":null,"jsonrpc":"2.0"}<<< Read Error: EOF
+
+
+
+
+
+
+
+Started logging.
+
+>>>
+Content-Length: 2167
+
+{"method":"initialize","params":{"processId":20440,"rootPath":"C:\\Users\\Anniesh\\AppData\\Local\\Temp\\arduino-language-server923849939\\sketch","rootUri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch","clientInfo":{"name":"vscode","version":"1.50.0"},"trace":"off","initializationOptions":{},"capabilities":{"workspace":{"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"]},"applyEdit":true,"symbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"executeCommand":{"dynamicRegistration":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"workspaceFolders":true,"configuration":true},"textDocument":{"declaration":{"linkSupport":true},"definition":{"linkSupport":true},"implementation":{"linkSupport":true,"dynamicRegistration":true},"typeDefinition":{"linkSupport":true},"synchronization":{"willSave":true,"didSave":true,"willSaveWaitUntil":true},"documentSymbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]},"hierarchicalDocumentSymbolSupport":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"codeAction":{"dynamicRegistration":true,"isPreferredSupport":true,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}}},"completion":{"completionItem":{"documentationFormat":["markdown","plaintext"],"snippetSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"signatureHelp":{"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true}}},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"hover":{"contentFormat":["markdown","plaintext"]},"foldingRange":{"dynamicRegistration":true,"rangeLimit":5000,"lineFoldingOnly":true},"colorProvider":{"dynamicRegistration":true}},"window":{"workDoneProgress":true}}},"id":0,"jsonrpc":"2.0"}
+<<<
+Content-Length: 1671
+
+{"id":0,"jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":[],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","enum","enumMember","type","dependent","dependent","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)"}}}
+>>>
+Content-Length: 52
+
+{"method":"initialized","params":{},"jsonrpc":"2.0"}Content-Length: 1677
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch/sketch_oct14a.ino.cpp","languageId":"cpp","version":1,"text":"#include \u003cArduino.h\u003e\n#line 1 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\sketch_oct14a\\\\sketch_oct14a.ino\"\n#include \u003cSPI.h\u003e\n#include \u003cSD.h\u003e\n#include \u003cWire.h\u003e\n#include \"i2c.h\"\n\n#include \"i2c_BMP280.h\"\nBMP280 bmp280;\n\n\nconst int ledr = 3;\nconst int ledg = 5;\nconst int ledb = 6;\n\n\n#line 15 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\sketch_oct14a\\\\sketch_oct14a.ino\"\nvoid setup();\n#line 33 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\sketch_oct14a\\\\sketch_oct14a.ino\"\nvoid loop();\n#line 43 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\sketch_oct14a\\\\sketch_oct14a.ino\"\nvoid ledstatus(int val1, int val2, int val3, int mes);\n#line 15 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\sketch_oct14a\\\\sketch_oct14a.ino\"\nvoid setup() \n{\n  pinMode(ledr,OUTPUT);\n  pinMode(ledg,OUTPUT);\n  pinMode(ledb,OUTPUT);\n  \n  \n  \n  \n  if (bmp280.initialize())\n  {\n    ledstatus(10,237,245,100);\n  }\n  else\n  ledstatus(9,147,228,404);\n\n}\n\nvoid loop() {\n \n\n}\n\n\n\n\n\n\nvoid ledstatus(int val1, int val2, int val3, int mes)\n{ int n = 10;\n  if(mes = 404){\n    while(n!=0){\n    digitalWrite(ledr,val1);\n    digitalWrite(ledg,val2);\n    digitalWrite(ledb,val3);\n    delay(500);\n    n--;\n  }}\n  if(mes = 100)\n  {\n   \n    digitalWrite(ledr,val1);\n    digitalWrite(ledg,val2);\n    digitalWrite(ledb,val3);\n    delay(2000);\n  \n}\n}\n\n"}},"jsonrpc":"2.0"}Content-Length: 205
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch/sketch_oct14a.ino.cpp"}},"id":1,"jsonrpc":"2.0"}Content-Length: 304
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch/sketch_oct14a.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":2,"jsonrpc":"2.0"}
+<<<
+Content-Length: 111
+
+{"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+>>>
+Content-Length: 38
+
+{"id":0,"result":null,"jsonrpc":"2.0"}
+<<<
+Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/35","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/35","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/35","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/35","percentage":0}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/35","percentage":2.8571428571428572}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/35","percentage":2.8571428571428572}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"2/35","percentage":5.7142857142857144}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"2/35","percentage":5.7142857142857144}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"3/35","percentage":8.5714285714285712}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"3/35","percentage":8.5714285714285712}}}Content-Length: 214
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[],"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server923849939/sketch/sketch_oct14a.ino.cpp","version":1}}Content-Length: 1933
+
+{"id":1,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":8},"start":{"character":0,"line":8}},"selectionRange":{"end":{"character":13,"line":8},"start":{"character":7,"line":8}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":14,"line":11},"start":{"character":10,"line":11}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":12},"start":{"character":0,"line":12}},"selectionRange":{"end":{"character":14,"line":12},"start":{"character":10,"line":12}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":13},"start":{"character":0,"line":13}},"selectionRange":{"end":{"character":14,"line":13},"start":{"character":10,"line":13}}},{"kind":12,"name":"setup","range":{"end":{"character":12,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":10,"line":17},"start":{"character":5,"line":17}}},{"kind":12,"name":"loop","range":{"end":{"character":11,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":9,"line":19},"start":{"character":5,"line":19}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":53,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":14,"line":21},"start":{"character":5,"line":21}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":39},"start":{"character":0,"line":23}},"selectionRange":{"end":{"character":10,"line":23},"start":{"character":5,"line":23}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":44},"start":{"character":0,"line":41}},"selectionRange":{"end":{"character":9,"line":41},"start":{"character":5,"line":41}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":70},"start":{"character":0,"line":51}},"selectionRange":{"end":{"character":14,"line":51},"start":{"character":5,"line":51}}}]}Content-Length: 36
+
+{"id":2,"jsonrpc":"2.0","result":[]}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"4/35","percentage":11.428571428571429}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"4/35","percentage":11.428571428571429}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"5/35","percentage":14.285714285714286}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"5/35","percentage":14.285714285714286}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"6/35","percentage":17.142857142857142}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"6/35","percentage":17.142857142857142}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"7/35","percentage":20}}}Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"7/35","percentage":20}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"8/35","percentage":22.857142857142858}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"8/35","percentage":22.857142857142858}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"9/35","percentage":25.714285714285715}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"9/35","percentage":25.714285714285715}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"10/35","percentage":28.571428571428573}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"10/35","percentage":28.571428571428573}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"11/35","percentage":31.428571428571427}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"11/35","percentage":31.428571428571427}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"12/35","percentage":34.285714285714285}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"12/35","percentage":34.285714285714285}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"13/35","percentage":37.142857142857146}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"13/35","percentage":37.142857142857146}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"14/35","percentage":40}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"14/35","percentage":40}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"15/35","percentage":42.857142857142854}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"15/35","percentage":42.857142857142854}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"16/35","percentage":45.714285714285715}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"16/35","percentage":45.714285714285715}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"17/35","percentage":48.571428571428569}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"17/35","percentage":48.571428571428569}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"18/35","percentage":51.428571428571431}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"18/35","percentage":51.428571428571431}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"19/35","percentage":54.285714285714285}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"19/35","percentage":54.285714285714285}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"20/35","percentage":57.142857142857146}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"20/35","percentage":57.142857142857146}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"21/35","percentage":60}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"21/35","percentage":60}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"22/35","percentage":62.857142857142854}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"22/35","percentage":62.857142857142854}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"23/35","percentage":65.714285714285708}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"23/35","percentage":65.714285714285708}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"24/35","percentage":68.571428571428569}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"24/35","percentage":68.571428571428569}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"25/35","percentage":71.428571428571431}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"25/35","percentage":71.428571428571431}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"26/35","percentage":74.285714285714292}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"26/35","percentage":74.285714285714292}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"27/35","percentage":77.142857142857139}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"27/35","percentage":77.142857142857139}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"28/35","percentage":80}}}Content-Length: 144
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"28/35","percentage":80}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"29/35","percentage":82.857142857142861}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"29/35","percentage":82.857142857142861}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"30/35","percentage":85.714285714285708}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"30/35","percentage":85.714285714285708}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"31/35","percentage":88.571428571428569}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"31/35","percentage":88.571428571428569}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"32/35","percentage":91.428571428571431}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"33/35","percentage":94.285714285714292}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"34/35","percentage":97.142857142857139}}}Content-Length: 107
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}
+>>>
+Content-Length: 58
+
+{"method":"shutdown","params":null,"id":3,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":3,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 47
+
+{"method":"exit","params":null,"jsonrpc":"2.0"}<<< Read Error: EOF

@@ -1,0 +1,550 @@
+
+
+
+
+
+
+
+Started logging.
+
+>>>
+Content-Length: 2166
+
+{"method":"initialize","params":{"processId":7556,"rootPath":"C:\\Users\\Anniesh\\AppData\\Local\\Temp\\arduino-language-server865228747\\sketch","rootUri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch","clientInfo":{"name":"vscode","version":"1.50.0"},"trace":"off","initializationOptions":{},"capabilities":{"workspace":{"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"]},"applyEdit":true,"symbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"executeCommand":{"dynamicRegistration":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"workspaceFolders":true,"configuration":true},"textDocument":{"declaration":{"linkSupport":true},"definition":{"linkSupport":true},"implementation":{"linkSupport":true,"dynamicRegistration":true},"typeDefinition":{"linkSupport":true},"synchronization":{"willSave":true,"didSave":true,"willSaveWaitUntil":true},"documentSymbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]},"hierarchicalDocumentSymbolSupport":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"codeAction":{"dynamicRegistration":true,"isPreferredSupport":true,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}}},"completion":{"completionItem":{"documentationFormat":["markdown","plaintext"],"snippetSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"signatureHelp":{"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true}}},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"hover":{"contentFormat":["markdown","plaintext"]},"foldingRange":{"dynamicRegistration":true,"rangeLimit":5000,"lineFoldingOnly":true},"colorProvider":{"dynamicRegistration":true}},"window":{"workDoneProgress":true}}},"id":0,"jsonrpc":"2.0"}
+<<<
+Content-Length: 1671
+
+{"id":0,"jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":[],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","enum","enumMember","type","dependent","dependent","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)"}}}
+>>>
+Content-Length: 52
+
+{"method":"initialized","params":{},"jsonrpc":"2.0"}Content-Length: 7385
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp","languageId":"cpp","version":1,"text":"#include \u003cArduino.h\u003e\n#line 1 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\alt_gyro_datalogger\\\\alt_gyro_datalogger.ino\"\n#include \u003cSPI.h\u003e\r\n#include \u003cSD.h\u003e\r\n#include \u003cWire.h\u003e\r\n#include \u003cMPU6050_tockn.h\u003e\r\n#include \u003ci2c.h\u003e\r\n#include \"i2c_BMP280.h\"\r\n\r\n\r\nBMP280 bmp280;\r\nMPU6050 mpu6050(Wire);\r\n\r\n\r\n//rgb\r\nconst int ledr = 3;\r\nconst int ledg = 5;\r\nconst int ledb = 6;\r\n\r\nlong timer = 0;\r\n\r\nconst int chipselect = 4;\r\n\r\n//pyrochannel 1 and 2(uncomment the following code when in use)\r\n/*\r\nconst int pyro1 = 2;\r\nconst int pyro2 = 4;\r\nconst int buzz = 9;\r\n*/\r\n\r\n//pyro channel 3 and 4 for paracute\r\nconst int pyro3 = 7;\r\nconst int pyro4 = 8;\r\n\r\n//bluetooth(uncomment the following code when in use)\r\n//int state = 0;\r\n\r\n\r\nvoid setup() \r\n{\r\n  //rgb pin out\r\n  pinMode(ledr,OUTPUT);\r\n  pinMode(ledg,OUTPUT);\r\n  pinMode(ledb,OUTPUT);\r\n\r\n\r\n   //bluetooth(uncomment the following code when in use)\r\n  //Serial.begin(38400);\r\n\r\n\r\n  //pyrochannel 1 and 2 pin out (uncomment the following code when in use)\r\n  /*pinMode(pyro1,OUTPUT);\r\n  digitalWrite(pyro1,LOW);\r\n  pinMode(pyro2,OUTPUT);\r\n  digitalWrite(pyro2,LOW);\r\n  pinMode(buzz,OUTPUT);\r\n  */\r\n\r\n  //pyrochannel 3 and 4 pin out\r\n  pinMode(pyro3,OUTPUT);\r\n  digitalWrite(pyro3,LOW);\r\n  pinMode(pyro4,OUTPUT);\r\n  digitalWrite(pyro4,LOW);\r\n  \r\n\r\n  //sd card\r\n  if(!SD.begin(chipselect))\r\n  {\r\n    ledstatus(6,252,104,404);\r\n  }\r\n  else\r\n  ledstatus(204,255,61,100);\r\n\r\n  File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\r\n  dataFile.println(\"Time \\t temperature C \\t altitude m \\t pressure Pa \\t temperature C \\t Accleration-X \\t Accleration-Y \\t Accleration-Z \\t Gyro-X \\t Gyro-Y \\t Gyro-Z \\t Accleration_angel-X \\t Accleration_angel-Y \\t Accleration_angel-Z \\t Gyro_angel-X \\t Gyro_angel-Y \\t Gyro_angel-Z \\t Angel-X \\t Angel-Y \\t Angel-Z \");\r\n  dataFile.close();\r\n  \r\n  //pressure and altitude\r\n  if (bmp280.initialize())\r\n  {\r\n    ledstatus(10,237,245,100);\r\n  }\r\n  else\r\n  ledstatus(9,147,228,404);\r\n   bmp280.setEnabled(0);\r\n   bmp280.triggerMeasurement();\r\n  \r\n  \r\n  \r\n  //MPU6050\r\n  Wire.begin();\r\n  mpu6050.begin();\r\n  mpu6050.calcGyroOffsets(true);\r\n\r\n\r\n\r\n  //bluetooth (uncomment the following code when in use)\r\n    /*\r\n     int lau =0;\r\n     while(lau == '0'){\r\n     if(Serial.available()\u003e0)\r\n    {\r\n      state = Serial.read();\r\n    }\r\n\r\n    if(state == \"1001\")\r\n    {\r\n      digitalWrite(pyro1,HIGH);\r\n      digitalWrite(buzz,HIGH);\r\n      Serial.println(\"PYRO1 active\");\r\n      delay(500)\r\n      digitalWrite(pyro1,LOW);\r\n      digitalWrite(buzz,LOW);\r\n      Serial.println(\"PYRO1 deactive\");\r\n      state = 0;\r\n      lau = 1;\r\n    }\r\n    if(state == \"2002\")\r\n    {\r\n      digitalWrite(pyro1,HIGH);\r\n      digitalWrite(buzz,HIGH);\r\n      Serial.println(\"PYRO2 active\");\r\n      delay(500)\r\n      digitalWrite(pyro2,LOW);\r\n      digitalWrite(buzz,LOW);\r\n      Serial.println(\"PYRO2 deactive\");\r\n      state = 0;\r\n      lau = 1;\r\n    }}\r\n    */\r\n\r\n\r\n   //serial monitor\r\n   Serial.begin(9600);\r\n\r\n\r\n  \r\n}\r\n\r\nvoid loop() \r\n{\r\n    //rgb go-fly\r\n    digitalWrite(ledr,78);\r\n    digitalWrite(ledg,255);\r\n    digitalWrite(ledb,250);\r\n  \r\n    \r\n    //pressure and altitude\r\n    String patdata =\"\";\r\n    bmp280.awaitMeasurement();\r\n    float temperature;\r\n    bmp280.getTemperature(temperature);\r\n    String t = String(temperature);\r\n    float pascal;\r\n    bmp280.getPressure(pascal);\r\n    String pas = String(pascal);\r\n    static float meters, metersold;\r\n    bmp280.getAltitude(meters);\r\n    String met = String(meters);\r\n    bmp280.triggerMeasurement();\r\n    patdata = String(t+\"\\t\"+pas+\"\\t\"+met);\r\n   \r\n   \r\n    //paracute \r\n    float para=0.0;\r\n    int skip =0;\r\n    while(skip == '0'){\r\n    if((meters \u003c= 35.0)\u0026\u0026(meters\u003c=para)){\r\n      skip += 1;\r\n      digitalWrite(pyro3,HIGH);\r\n      delay(500);\r\n      digitalWrite(pyro3,LOW);\r\n      delay(100);\r\n      digitalWrite(pyro4,HIGH);\r\n      delay(500);\r\n      digitalWrite(pyro4,LOW);\r\n    }\r\n     para = meters;\r\n    }\r\n\r\n\r\n    //MPU6050\r\n    mpu6050.update();\r\n    String mpudata = \"\";\r\n    if(millis() - timer \u003e 1000)\r\n    {\r\n      float temp=mpu6050.getTemp();\r\n      String te = String(temp);\r\n      \r\n      float accx = mpu6050.getAccX();\r\n      String ax = String(accx);\r\n      float accy = mpu6050.getAccY();\r\n      String ay = String(accy);\r\n     \r\n\r\n      float gyrox = mpu6050.getGyroX();\r\n      String gx = String(gyrox);\r\n      float gyroy = mpu6050.getGyroY();\r\n      String gy = String(gyroy);\r\n      float gyroz = mpu6050.getGyroZ();\r\n      String gz = String(gyroz);\r\n\r\n      float accanx = mpu6050.getAccAngleX();\r\n      String aax = String(accanx);\r\n      float accany = mpu6050.getAccAngleY();\r\n      String aay = String(accanx);\r\n    \r\n\r\n      float gyroanx = mpu6050.getGyroAngleX();\r\n      String gax = String(gyroanx);\r\n      float gyroany = mpu6050.getGyroAngleY();\r\n      String gay = String(gyroany);\r\n      float gyroanz = mpu6050.getGyroAngleZ();\r\n      String gaz = String(gyroanz);\r\n\r\n      float angx = mpu6050.getAngleX();\r\n      String anx = String(angx);\r\n      float angy = mpu6050.getAngleY();\r\n      String any = String(angy);\r\n      float angz = mpu6050.getAngleZ();\r\n      String anz = String(angz);\r\n      timer = millis();\r\n    \r\n      mpudata = String(te+\"\\t\"+ax+\"\\t\"+ay+\"\\t\"+gx+\"\\t\"+gy+\"\\t\"+gz+\"\\t\"+aax+\"\\t\"+aay+\"\\t\"+gax+\"\\t\"+gay+\"\\t\"+gaz+\"\\t\"+anx+\"\\t\"+any+\"\\t\"+anz);\r\n      \r\n    }\r\n    \r\n\r\n     \r\n    //data to SD card\r\n    String tim = String(millis()/1000);\r\n    String finaldata = tim+\"\\t\"+ patdata +\"\\t\"+ mpudata;\r\n     File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\r\n  if(dataFile)\r\n  {\r\n    dataFile.println(finaldata);\r\n    dataFile.close();\r\n   }\r\n  else\r\n  ledstatus(6,252,104,404);\r\n\r\n  \r\n  //serial moniter\r\n  if (Serial.available()) {     \r\n    Serial.write(String(finaldata));   \r\n  }\r\n  else\r\n  ledstatus(255,0,247,404);\r\n\r\n\r\n\r\n}  \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nvoid ledstatus(int val1, int val2, int val3, int mes)\r\n{ int n = 5;\r\n  if(mes == 404){\r\n    while(n!=0){\r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(500);\r\n    digitalWrite(ledr,0);\r\n    digitalWrite(ledg,0);\r\n    digitalWrite(ledb,0);\r\n    delay(500)\r\n    n--;\r\n  }}\r\n  if(mes == 100)\r\n  {\r\n   \r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(5000);\r\n    digitalWrite(ledr,102);\r\n    digitalWrite(ledg,255);\r\n    digitalWrite(ledb,255);\r\n  \r\n}\r\n}\r\n\n"}},"jsonrpc":"2.0"}Content-Length: 211
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}},"id":1,"jsonrpc":"2.0"}Content-Length: 310
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":2,"jsonrpc":"2.0"}
+<<<
+Content-Length: 111
+
+{"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+>>>
+Content-Length: 38
+
+{"id":0,"result":null,"jsonrpc":"2.0"}
+<<<
+Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 107
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}Content-Length: 4082
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"pp_file_not_found","message":"'Arduino.h' file not found","range":{"end":{"character":20,"line":0},"start":{"character":9,"line":0}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'BMP280'","range":{"end":{"character":6,"line":10},"start":{"character":0,"line":10}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'MPU6050'","range":{"end":{"character":7,"line":11},"start":{"character":0,"line":11}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'Wire'","range":{"end":{"character":20,"line":11},"start":{"character":16,"line":11}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":41},"start":{"character":15,"line":41}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":42},"start":{"character":15,"line":42}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":43},"start":{"character":15,"line":43}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":22,"line":59},"start":{"character":16,"line":59}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'LOW'","range":{"end":{"character":24,"line":60},"start":{"character":21,"line":60}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":22,"line":61},"start":{"character":16,"line":61}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'LOW'","range":{"end":{"character":24,"line":62},"start":{"character":21,"line":62}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":8,"line":66},"start":{"character":6,"line":66}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":68},"start":{"character":4,"line":68}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":71},"start":{"character":2,"line":71}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'File'","range":{"end":{"character":6,"line":73},"start":{"character":2,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":20,"line":73},"start":{"character":18,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'FILE_WRITE'","range":{"end":{"character":51,"line":73},"start":{"character":41,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":80},"start":{"character":4,"line":80}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":83},"start":{"character":2,"line":83}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Wire'","range":{"end":{"character":6,"line":90},"start":{"character":2,"line":90}},"severity":1,"source":"clang"},{"code":"fatal_too_many_errors","message":"Too many errors emitted, stopping now","range":{"end":{"character":0,"line":0},"start":{"character":0,"line":0}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp","version":1}}Content-Length: 2334
+
+{"id":1,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":13,"line":10},"start":{"character":7,"line":10}}},{"kind":12,"name":"mpu6050","range":{"end":{"character":21,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":15,"line":11},"start":{"character":8,"line":11}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":15},"start":{"character":0,"line":15}},"selectionRange":{"end":{"character":14,"line":15},"start":{"character":10,"line":15}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":14,"line":16},"start":{"character":10,"line":16}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}},{"kind":13,"name":"timer","range":{"end":{"character":14,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":10,"line":19},"start":{"character":5,"line":19}}},{"kind":13,"name":"chipselect","range":{"end":{"character":24,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":20,"line":21},"start":{"character":10,"line":21}}},{"kind":13,"name":"pyro3","range":{"end":{"character":19,"line":31},"start":{"character":0,"line":31}},"selectionRange":{"end":{"character":15,"line":31},"start":{"character":10,"line":31}}},{"kind":13,"name":"pyro4","range":{"end":{"character":19,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":10,"line":32}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":137},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":10,"line":38},"start":{"character":5,"line":38}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":251},"start":{"character":0,"line":139}},"selectionRange":{"end":{"character":9,"line":139},"start":{"character":5,"line":139}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":289},"start":{"character":0,"line":263}},"selectionRange":{"end":{"character":14,"line":263},"start":{"character":5,"line":263}}}]}Content-Length: 36
+
+{"id":2,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 310
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":3,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":3,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 211
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}},"id":4,"jsonrpc":"2.0"}
+<<<
+Content-Length: 2334
+
+{"id":4,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":13,"line":10},"start":{"character":7,"line":10}}},{"kind":12,"name":"mpu6050","range":{"end":{"character":21,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":15,"line":11},"start":{"character":8,"line":11}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":15},"start":{"character":0,"line":15}},"selectionRange":{"end":{"character":14,"line":15},"start":{"character":10,"line":15}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":14,"line":16},"start":{"character":10,"line":16}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}},{"kind":13,"name":"timer","range":{"end":{"character":14,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":10,"line":19},"start":{"character":5,"line":19}}},{"kind":13,"name":"chipselect","range":{"end":{"character":24,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":20,"line":21},"start":{"character":10,"line":21}}},{"kind":13,"name":"pyro3","range":{"end":{"character":19,"line":31},"start":{"character":0,"line":31}},"selectionRange":{"end":{"character":15,"line":31},"start":{"character":10,"line":31}}},{"kind":13,"name":"pyro4","range":{"end":{"character":19,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":10,"line":32}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":137},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":10,"line":38},"start":{"character":5,"line":38}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":251},"start":{"character":0,"line":139}},"selectionRange":{"end":{"character":9,"line":139},"start":{"character":5,"line":139}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":289},"start":{"character":0,"line":263}},"selectionRange":{"end":{"character":14,"line":263},"start":{"character":5,"line":263}}}]}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":215,"character":12}},"id":5,"jsonrpc":"2.0"}
+<<<
+Content-Length: 246
+
+{"id":5,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `angx`  \n\n---\nType: `float`  \n\n---\n```cpp\n// In loop\nfloat angx\n```"},"range":{"end":{"character":16,"line":215},"start":{"character":12,"line":215}}}}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":216,"character":11}},"id":6,"jsonrpc":"2.0"}
+<<<
+Content-Length: 247
+
+{"id":6,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `anx`  \n\n---\nType: `int`  \n\n---\n```cpp\n// In loop\npublic: int anx\n```"},"range":{"end":{"character":12,"line":216},"start":{"character":6,"line":216}}}}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":210,"character":17}},"id":7,"jsonrpc":"2.0"}
+<<<
+Content-Length: 252
+
+{"id":7,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `gyroany`  \n\n---\nType: `float`  \n\n---\n```cpp\n// In loop\nfloat gyroany\n```"},"range":{"end":{"character":19,"line":210},"start":{"character":12,"line":210}}}}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":199,"character":20}},"id":8,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":8,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 58
+
+{"method":"shutdown","params":null,"id":9,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":9,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 47
+
+{"method":"exit","params":null,"jsonrpc":"2.0"}<<< Read Error: EOF
+
+
+
+
+
+
+
+Started logging.
+
+>>>
+Content-Length: 2167
+
+{"method":"initialize","params":{"processId":11732,"rootPath":"C:\\Users\\Anniesh\\AppData\\Local\\Temp\\arduino-language-server270391559\\sketch","rootUri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch","clientInfo":{"name":"vscode","version":"1.50.0"},"trace":"off","initializationOptions":{},"capabilities":{"workspace":{"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"]},"applyEdit":true,"symbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"executeCommand":{"dynamicRegistration":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"workspaceFolders":true,"configuration":true},"textDocument":{"declaration":{"linkSupport":true},"definition":{"linkSupport":true},"implementation":{"linkSupport":true,"dynamicRegistration":true},"typeDefinition":{"linkSupport":true},"synchronization":{"willSave":true,"didSave":true,"willSaveWaitUntil":true},"documentSymbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]},"hierarchicalDocumentSymbolSupport":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"codeAction":{"dynamicRegistration":true,"isPreferredSupport":true,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}}},"completion":{"completionItem":{"documentationFormat":["markdown","plaintext"],"snippetSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"signatureHelp":{"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true}}},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"hover":{"contentFormat":["markdown","plaintext"]},"foldingRange":{"dynamicRegistration":true,"rangeLimit":5000,"lineFoldingOnly":true},"colorProvider":{"dynamicRegistration":true}},"window":{"workDoneProgress":true}}},"id":0,"jsonrpc":"2.0"}
+<<<
+Content-Length: 1671
+
+{"id":0,"jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":[],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","enum","enumMember","type","dependent","dependent","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)"}}}
+>>>
+Content-Length: 52
+
+{"method":"initialized","params":{},"jsonrpc":"2.0"}Content-Length: 7385
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp","languageId":"cpp","version":1,"text":"#include \u003cArduino.h\u003e\n#line 1 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\alt_gyro_datalogger\\\\alt_gyro_datalogger.ino\"\n#include \u003cSPI.h\u003e\r\n#include \u003cSD.h\u003e\r\n#include \u003cWire.h\u003e\r\n#include \u003cMPU6050_tockn.h\u003e\r\n#include \u003ci2c.h\u003e\r\n#include \"i2c_BMP280.h\"\r\n\r\n\r\nBMP280 bmp280;\r\nMPU6050 mpu6050(Wire);\r\n\r\n\r\n//rgb\r\nconst int ledr = 3;\r\nconst int ledg = 5;\r\nconst int ledb = 6;\r\n\r\nlong timer = 0;\r\n\r\nconst int chipselect = 4;\r\n\r\n//pyrochannel 1 and 2(uncomment the following code when in use)\r\n/*\r\nconst int pyro1 = 2;\r\nconst int pyro2 = 4;\r\nconst int buzz = 9;\r\n*/\r\n\r\n//pyro channel 3 and 4 for paracute\r\nconst int pyro3 = 7;\r\nconst int pyro4 = 8;\r\n\r\n//bluetooth(uncomment the following code when in use)\r\n//int state = 0;\r\n\r\n\r\nvoid setup() \r\n{\r\n  //rgb pin out\r\n  pinMode(ledr,OUTPUT);\r\n  pinMode(ledg,OUTPUT);\r\n  pinMode(ledb,OUTPUT);\r\n\r\n\r\n   //bluetooth(uncomment the following code when in use)\r\n  //Serial.begin(38400);\r\n\r\n\r\n  //pyrochannel 1 and 2 pin out (uncomment the following code when in use)\r\n  /*pinMode(pyro1,OUTPUT);\r\n  digitalWrite(pyro1,LOW);\r\n  pinMode(pyro2,OUTPUT);\r\n  digitalWrite(pyro2,LOW);\r\n  pinMode(buzz,OUTPUT);\r\n  */\r\n\r\n  //pyrochannel 3 and 4 pin out\r\n  pinMode(pyro3,OUTPUT);\r\n  digitalWrite(pyro3,LOW);\r\n  pinMode(pyro4,OUTPUT);\r\n  digitalWrite(pyro4,LOW);\r\n  \r\n\r\n  //sd card\r\n  if(!SD.begin(chipselect))\r\n  {\r\n    ledstatus(6,252,104,404);\r\n  }\r\n  else\r\n  ledstatus(204,255,61,100);\r\n\r\n  File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\r\n  dataFile.println(\"Time \\t temperature C \\t altitude m \\t pressure Pa \\t temperature C \\t Accleration-X \\t Accleration-Y \\t Accleration-Z \\t Gyro-X \\t Gyro-Y \\t Gyro-Z \\t Accleration_angel-X \\t Accleration_angel-Y \\t Accleration_angel-Z \\t Gyro_angel-X \\t Gyro_angel-Y \\t Gyro_angel-Z \\t Angel-X \\t Angel-Y \\t Angel-Z \");\r\n  dataFile.close();\r\n  \r\n  //pressure and altitude\r\n  if (bmp280.initialize())\r\n  {\r\n    ledstatus(10,237,245,100);\r\n  }\r\n  else\r\n  ledstatus(9,147,228,404);\r\n   bmp280.setEnabled(0);\r\n   bmp280.triggerMeasurement();\r\n  \r\n  \r\n  \r\n  //MPU6050\r\n  Wire.begin();\r\n  mpu6050.begin();\r\n  mpu6050.calcGyroOffsets(true);\r\n\r\n\r\n\r\n  //bluetooth (uncomment the following code when in use)\r\n    /*\r\n     int lau =0;\r\n     while(lau == '0'){\r\n     if(Serial.available()\u003e0)\r\n    {\r\n      state = Serial.read();\r\n    }\r\n\r\n    if(state == \"1001\")\r\n    {\r\n      digitalWrite(pyro1,HIGH);\r\n      digitalWrite(buzz,HIGH);\r\n      Serial.println(\"PYRO1 active\");\r\n      delay(500)\r\n      digitalWrite(pyro1,LOW);\r\n      digitalWrite(buzz,LOW);\r\n      Serial.println(\"PYRO1 deactive\");\r\n      state = 0;\r\n      lau = 1;\r\n    }\r\n    if(state == \"2002\")\r\n    {\r\n      digitalWrite(pyro1,HIGH);\r\n      digitalWrite(buzz,HIGH);\r\n      Serial.println(\"PYRO2 active\");\r\n      delay(500)\r\n      digitalWrite(pyro2,LOW);\r\n      digitalWrite(buzz,LOW);\r\n      Serial.println(\"PYRO2 deactive\");\r\n      state = 0;\r\n      lau = 1;\r\n    }}\r\n    */\r\n\r\n\r\n   //serial monitor\r\n   Serial.begin(9600);\r\n\r\n\r\n  \r\n}\r\n\r\nvoid loop() \r\n{\r\n    //rgb go-fly\r\n    digitalWrite(ledr,78);\r\n    digitalWrite(ledg,255);\r\n    digitalWrite(ledb,250);\r\n  \r\n    \r\n    //pressure and altitude\r\n    String patdata =\"\";\r\n    bmp280.awaitMeasurement();\r\n    float temperature;\r\n    bmp280.getTemperature(temperature);\r\n    String t = String(temperature);\r\n    float pascal;\r\n    bmp280.getPressure(pascal);\r\n    String pas = String(pascal);\r\n    static float meters, metersold;\r\n    bmp280.getAltitude(meters);\r\n    String met = String(meters);\r\n    bmp280.triggerMeasurement();\r\n    patdata = String(t+\"\\t\"+pas+\"\\t\"+met);\r\n   \r\n   \r\n    //paracute \r\n    float para=0.0;\r\n    int skip =0;\r\n    while(skip == '0'){\r\n    if((meters \u003c= 35.0)\u0026\u0026(meters\u003c=para)){\r\n      skip += 1;\r\n      digitalWrite(pyro3,HIGH);\r\n      delay(500);\r\n      digitalWrite(pyro3,LOW);\r\n      delay(100);\r\n      digitalWrite(pyro4,HIGH);\r\n      delay(500);\r\n      digitalWrite(pyro4,LOW);\r\n    }\r\n     para = meters;\r\n    }\r\n\r\n\r\n    //MPU6050\r\n    mpu6050.update();\r\n    String mpudata = \"\";\r\n    if(millis() - timer \u003e 1000)\r\n    {\r\n      float temp=mpu6050.getTemp();\r\n      String te = String(temp);\r\n      \r\n      float accx = mpu6050.getAccX();\r\n      String ax = String(accx);\r\n      float accy = mpu6050.getAccY();\r\n      String ay = String(accy);\r\n     \r\n\r\n      float gyrox = mpu6050.getGyroX();\r\n      String gx = String(gyrox);\r\n      float gyroy = mpu6050.getGyroY();\r\n      String gy = String(gyroy);\r\n      float gyroz = mpu6050.getGyroZ();\r\n      String gz = String(gyroz);\r\n\r\n      float accanx = mpu6050.getAccAngleX();\r\n      String aax = String(accanx);\r\n      float accany = mpu6050.getAccAngleY();\r\n      String aay = String(accanx);\r\n    \r\n\r\n      float gyroanx = mpu6050.getGyroAngleX();\r\n      String gax = String(gyroanx);\r\n      float gyroany = mpu6050.getGyroAngleY();\r\n      String gay = String(gyroany);\r\n      float gyroanz = mpu6050.getGyroAngleZ();\r\n      String gaz = String(gyroanz);\r\n\r\n      float angx = mpu6050.getAngleX();\r\n      String anx = String(angx);\r\n      float angy = mpu6050.getAngleY();\r\n      String any = String(angy);\r\n      float angz = mpu6050.getAngleZ();\r\n      String anz = String(angz);\r\n      timer = millis();\r\n    \r\n      mpudata = String(te+\"\\t\"+ax+\"\\t\"+ay+\"\\t\"+gx+\"\\t\"+gy+\"\\t\"+gz+\"\\t\"+aax+\"\\t\"+aay+\"\\t\"+gax+\"\\t\"+gay+\"\\t\"+gaz+\"\\t\"+anx+\"\\t\"+any+\"\\t\"+anz);\r\n      \r\n    }\r\n    \r\n\r\n     \r\n    //data to SD card\r\n    String tim = String(millis()/1000);\r\n    String finaldata = tim+\"\\t\"+ patdata +\"\\t\"+ mpudata;\r\n     File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\r\n  if(dataFile)\r\n  {\r\n    dataFile.println(finaldata);\r\n    dataFile.close();\r\n   }\r\n  else\r\n  ledstatus(6,252,104,404);\r\n\r\n  \r\n  //serial moniter\r\n  if (Serial.available()) {     \r\n    Serial.write(String(finaldata));   \r\n  }\r\n  else\r\n  ledstatus(255,0,247,404);\r\n\r\n\r\n\r\n}  \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nvoid ledstatus(int val1, int val2, int val3, int mes)\r\n{ int n = 5;\r\n  if(mes == 404){\r\n    while(n!=0){\r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(500);\r\n    digitalWrite(ledr,0);\r\n    digitalWrite(ledg,0);\r\n    digitalWrite(ledb,0);\r\n    delay(500)\r\n    n--;\r\n  }}\r\n  if(mes == 100)\r\n  {\r\n   \r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(5000);\r\n    digitalWrite(ledr,102);\r\n    digitalWrite(ledg,255);\r\n    digitalWrite(ledb,255);\r\n  \r\n}\r\n}\r\n\n"}},"jsonrpc":"2.0"}Content-Length: 211
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}},"id":1,"jsonrpc":"2.0"}
+<<<
+Content-Length: 111
+
+{"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+>>>
+Content-Length: 310
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":2,"jsonrpc":"2.0"}Content-Length: 38
+
+{"id":0,"result":null,"jsonrpc":"2.0"}
+<<<
+Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}Content-Length: 107
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}Content-Length: 4082
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"pp_file_not_found","message":"'Arduino.h' file not found","range":{"end":{"character":20,"line":0},"start":{"character":9,"line":0}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'BMP280'","range":{"end":{"character":6,"line":10},"start":{"character":0,"line":10}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'MPU6050'","range":{"end":{"character":7,"line":11},"start":{"character":0,"line":11}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'Wire'","range":{"end":{"character":20,"line":11},"start":{"character":16,"line":11}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":41},"start":{"character":15,"line":41}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":42},"start":{"character":15,"line":42}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":43},"start":{"character":15,"line":43}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":22,"line":59},"start":{"character":16,"line":59}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'LOW'","range":{"end":{"character":24,"line":60},"start":{"character":21,"line":60}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":22,"line":61},"start":{"character":16,"line":61}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'LOW'","range":{"end":{"character":24,"line":62},"start":{"character":21,"line":62}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":8,"line":66},"start":{"character":6,"line":66}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":68},"start":{"character":4,"line":68}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":71},"start":{"character":2,"line":71}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'File'","range":{"end":{"character":6,"line":73},"start":{"character":2,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":20,"line":73},"start":{"character":18,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'FILE_WRITE'","range":{"end":{"character":51,"line":73},"start":{"character":41,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":80},"start":{"character":4,"line":80}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":83},"start":{"character":2,"line":83}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Wire'","range":{"end":{"character":6,"line":90},"start":{"character":2,"line":90}},"severity":1,"source":"clang"},{"code":"fatal_too_many_errors","message":"Too many errors emitted, stopping now","range":{"end":{"character":0,"line":0},"start":{"character":0,"line":0}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp","version":1}}Content-Length: 2334
+
+{"id":1,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":13,"line":10},"start":{"character":7,"line":10}}},{"kind":12,"name":"mpu6050","range":{"end":{"character":21,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":15,"line":11},"start":{"character":8,"line":11}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":15},"start":{"character":0,"line":15}},"selectionRange":{"end":{"character":14,"line":15},"start":{"character":10,"line":15}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":14,"line":16},"start":{"character":10,"line":16}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}},{"kind":13,"name":"timer","range":{"end":{"character":14,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":10,"line":19},"start":{"character":5,"line":19}}},{"kind":13,"name":"chipselect","range":{"end":{"character":24,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":20,"line":21},"start":{"character":10,"line":21}}},{"kind":13,"name":"pyro3","range":{"end":{"character":19,"line":31},"start":{"character":0,"line":31}},"selectionRange":{"end":{"character":15,"line":31},"start":{"character":10,"line":31}}},{"kind":13,"name":"pyro4","range":{"end":{"character":19,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":10,"line":32}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":137},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":10,"line":38},"start":{"character":5,"line":38}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":251},"start":{"character":0,"line":139}},"selectionRange":{"end":{"character":9,"line":139},"start":{"character":5,"line":139}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":289},"start":{"character":0,"line":263}},"selectionRange":{"end":{"character":14,"line":263},"start":{"character":5,"line":263}}}]}Content-Length: 36
+
+{"id":2,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 310
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":3,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":3,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 211
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}},"id":4,"jsonrpc":"2.0"}
+<<<
+Content-Length: 2334
+
+{"id":4,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":13,"line":10},"start":{"character":7,"line":10}}},{"kind":12,"name":"mpu6050","range":{"end":{"character":21,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":15,"line":11},"start":{"character":8,"line":11}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":15},"start":{"character":0,"line":15}},"selectionRange":{"end":{"character":14,"line":15},"start":{"character":10,"line":15}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":14,"line":16},"start":{"character":10,"line":16}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}},{"kind":13,"name":"timer","range":{"end":{"character":14,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":10,"line":19},"start":{"character":5,"line":19}}},{"kind":13,"name":"chipselect","range":{"end":{"character":24,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":20,"line":21},"start":{"character":10,"line":21}}},{"kind":13,"name":"pyro3","range":{"end":{"character":19,"line":31},"start":{"character":0,"line":31}},"selectionRange":{"end":{"character":15,"line":31},"start":{"character":10,"line":31}}},{"kind":13,"name":"pyro4","range":{"end":{"character":19,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":10,"line":32}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":137},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":10,"line":38},"start":{"character":5,"line":38}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":251},"start":{"character":0,"line":139}},"selectionRange":{"end":{"character":9,"line":139},"start":{"character":5,"line":139}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":289},"start":{"character":0,"line":263}},"selectionRange":{"end":{"character":14,"line":263},"start":{"character":5,"line":263}}}]}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":74,"character":33}},"id":5,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":5,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":74,"character":35}},"id":6,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":6,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":74,"character":35}},"id":7,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":7,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 239
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":14,"character":4}},"id":8,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":8,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 239
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":15,"character":0}},"id":9,"jsonrpc":"2.0"}
+<<<
+Content-Length: 264
+
+{"id":9,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `ledr`  \n\n---\nType: `const int`  \nValue = `3`  \nrgb  \n\n---\n```cpp\nconst int ledr = 3\n```"},"range":{"end":{"character":5,"line":15},"start":{"character":0,"line":15}}}}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":17,"character":6}},"id":10,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":10,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":16,"character":0}},"id":11,"jsonrpc":"2.0"}
+<<<
+Content-Length: 258
+
+{"id":11,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `ledg`  \n\n---\nType: `const int`  \nValue = `5`  \n\n---\n```cpp\nconst int ledg = 5\n```"},"range":{"end":{"character":5,"line":16},"start":{"character":0,"line":16}}}}
+>>>
+Content-Length: 315
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":17,"character":19},"end":{"line":17,"character":19}},"context":{"diagnostics":[]}},"id":12,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":12,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 315
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":21,"character":25},"end":{"line":21,"character":25}},"context":{"diagnostics":[]}},"id":13,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":13,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 314
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":16,"character":0},"end":{"line":21,"character":25}},"context":{"diagnostics":[]}},"id":14,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":14,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 314
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":15,"character":0},"end":{"line":21,"character":25}},"context":{"diagnostics":[]}},"id":15,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":15,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":15,"character":5}},"id":16,"jsonrpc":"2.0"}
+<<<
+Content-Length: 265
+
+{"id":16,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `ledr`  \n\n---\nType: `const int`  \nValue = `3`  \nrgb  \n\n---\n```cpp\nconst int ledr = 3\n```"},"range":{"end":{"character":5,"line":15},"start":{"character":0,"line":15}}}}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":17,"character":10}},"id":17,"jsonrpc":"2.0"}
+<<<
+Content-Length: 260
+
+{"id":17,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `ledb`  \n\n---\nType: `const int`  \nValue = `6`  \n\n---\n```cpp\nconst int ledb = 6\n```"},"range":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}}}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":16,"character":6}},"id":18,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":18,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 315
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":52,"character":26},"end":{"line":52,"character":26}},"context":{"diagnostics":[]}},"id":19,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":19,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":43,"character":23}},"id":20,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":20,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 877
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":41,"character":2},"end":{"line":43,"character":23}},"context":{"diagnostics":[{"range":{"start":{"line":41,"character":15},"end":{"line":41,"character":21}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'OUTPUT'"},{"range":{"start":{"line":42,"character":15},"end":{"line":42,"character":21}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'OUTPUT'"},{"range":{"start":{"line":43,"character":15},"end":{"line":43,"character":21}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'OUTPUT'"}]}},"id":21,"jsonrpc":"2.0"}
+<<<
+Content-Length: 404
+
+{"id":21,"jsonrpc":"2.0","result":[{"command":{"arguments":[{"file":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp","selection":{"end":{"character":23,"line":43},"start":{"character":2,"line":41}},"tweakID":"ExtractFunction"}],"command":"clangd.applyTweak","title":"Extract to function"},"kind":"refactor","title":"Extract to function"}]}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":41,"character":2}},"id":22,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":22,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 317
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":189,"character":35},"end":{"line":189,"character":35}},"context":{"diagnostics":[]}},"id":23,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":23,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":50,"character":25}},"id":24,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":24,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":52,"character":4}},"id":25,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":25,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":52,"character":4}},"id":26,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":26,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":52,"character":3}},"id":27,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":27,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":51,"character":2}},"id":28,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":28,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":51,"character":2}},"id":29,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":29,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":51,"character":1}},"id":30,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":30,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 313
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":51,"character":1},"end":{"line":51,"character":2}},"context":{"diagnostics":[]}},"id":31,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":31,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 314
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":51,"character":2},"end":{"line":54,"character":25}},"context":{"diagnostics":[]}},"id":32,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":32,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 314
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":51,"character":2},"end":{"line":54,"character":26}},"context":{"diagnostics":[]}},"id":33,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":33,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":54,"character":26}},"id":34,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":34,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":53,"character":14}},"id":35,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":35,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":50,"character":22}},"id":36,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":36,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":74,"character":24}},"id":37,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":37,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 315
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":75,"character":19},"end":{"line":75,"character":19}},"context":{"diagnostics":[]}},"id":38,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":38,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 1422
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":65,"character":3},"end":{"line":75,"character":19}},"context":{"diagnostics":[{"range":{"start":{"line":66,"character":6},"end":{"line":66,"character":8}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'SD'"},{"range":{"start":{"line":68,"character":4},"end":{"line":68,"character":13}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'ledstatus'"},{"range":{"start":{"line":71,"character":2},"end":{"line":71,"character":11}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'ledstatus'"},{"range":{"start":{"line":73,"character":2},"end":{"line":73,"character":6}},"severity":1,"code":"unknown_typename","source":"clang","message":"Unknown type name 'File'"},{"range":{"start":{"line":73,"character":18},"end":{"line":73,"character":20}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'SD'"},{"range":{"start":{"line":73,"character":41},"end":{"line":73,"character":51}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'FILE_WRITE'"}]}},"id":39,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":39,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 1422
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":65,"character":2},"end":{"line":75,"character":19}},"context":{"diagnostics":[{"range":{"start":{"line":66,"character":6},"end":{"line":66,"character":8}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'SD'"},{"range":{"start":{"line":68,"character":4},"end":{"line":68,"character":13}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'ledstatus'"},{"range":{"start":{"line":71,"character":2},"end":{"line":71,"character":11}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'ledstatus'"},{"range":{"start":{"line":73,"character":2},"end":{"line":73,"character":6}},"severity":1,"code":"unknown_typename","source":"clang","message":"Unknown type name 'File'"},{"range":{"start":{"line":73,"character":18},"end":{"line":73,"character":20}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'SD'"},{"range":{"start":{"line":73,"character":41},"end":{"line":73,"character":51}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'FILE_WRITE'"}]}},"id":40,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":40,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":65,"character":2}},"id":41,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":41,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":74,"character":55}},"id":42,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":42,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 241
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":71,"character":24}},"id":43,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":43,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 315
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":92,"character":32},"end":{"line":92,"character":32}},"context":{"diagnostics":[]}},"id":44,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":44,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 497
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":89,"character":2},"end":{"line":92,"character":32}},"context":{"diagnostics":[{"range":{"start":{"line":90,"character":2},"end":{"line":90,"character":6}},"severity":1,"code":"undeclared_var_use","source":"clang","message":"Use of undeclared identifier 'Wire'"}]}},"id":45,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":45,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 240
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":89,"character":2}},"id":46,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":46,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 242
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":108,"character":26}},"id":47,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":47,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 242
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"position":{"line":109,"character":34}},"id":48,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":48,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 315
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"},"range":{"start":{"line":137,"character":1},"end":{"line":137,"character":1}},"context":{"diagnostics":[]}},"id":49,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":49,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 59
+
+{"method":"shutdown","params":null,"id":50,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":50,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 47
+
+{"method":"exit","params":null,"jsonrpc":"2.0"}<<< Read Error: EOF

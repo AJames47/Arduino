@@ -1,0 +1,591 @@
+
+
+
+
+
+
+
+Started logging.
+I[13:36:29.872] clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)
+I[13:36:29.874] PID: 13212
+I[13:36:29.874] Working directory: d:\arduino codes\alt_gyro_datalogger\alt_gyro_datalogger
+I[13:36:29.874] argv[0]: e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\bin\clangd.exe
+I[13:36:29.874] argv[1]: -log=verbose
+I[13:36:29.874] argv[2]: --compile-commands-dir=C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747
+I[13:36:29.874] argv[3]: -query-driver=C:\Users\Anniesh\AppData\Local\Arduino15\packages\**
+V[13:36:29.881] User config file is C:\Users\Anniesh\AppData\Local\clangd\config.yaml
+I[13:36:29.881] Starting LSP over stdin/stdout
+V[13:36:29.881] <<< {"id":0,"jsonrpc":"2.0","method":"initialize","params":{"capabilities":{"textDocument":{"codeAction":{"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}},"dynamicRegistration":true,"isPreferredSupport":true},"colorProvider":{"dynamicRegistration":true},"completion":{"completionItem":{"documentationFormat":["markdown","plaintext"],"snippetSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"declaration":{"linkSupport":true},"definition":{"linkSupport":true},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"documentSymbol":{"hierarchicalDocumentSymbolSupport":true,"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"foldingRange":{"dynamicRegistration":true,"lineFoldingOnly":true,"rangeLimit":5000},"formatting":{"dynamicRegistration":true},"hover":{"contentFormat":["markdown","plaintext"]},"implementation":{"dynamicRegistration":true,"linkSupport":true},"rangeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"signatureHelp":{"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true}}},"synchronization":{"didSave":true,"willSave":true,"willSaveWaitUntil":true},"typeDefinition":{"linkSupport":true}},"window":{"workDoneProgress":true},"workspace":{"applyEdit":true,"configuration":true,"didChangeWatchedFiles":{"dynamicRegistration":true},"executeCommand":{"dynamicRegistration":true},"symbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"]},"workspaceFolders":true}},"clientInfo":{"name":"vscode","version":"1.50.0"},"initializationOptions":{},"processId":7556,"rootPath":"C:\\Users\\Anniesh\\AppData\\Local\\Temp\\arduino-language-server865228747\\sketch","rootUri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch","trace":"off"}}
+
+I[13:36:29.881] <-- initialize(0)
+I[13:36:29.902] --> reply:initialize(0) 20 ms
+V[13:36:29.902] >>> {"id":0,"jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":[],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","enum","enumMember","type","dependent","dependent","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)"}}}
+
+V[13:36:29.903] <<< {"jsonrpc":"2.0","method":"initialized","params":{}}
+
+I[13:36:29.903] <-- initialized
+V[13:36:29.906] <<< {"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"languageId":"cpp","text":"#include <Arduino.h>\n#line 1 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\alt_gyro_datalogger\\\\alt_gyro_datalogger.ino\"\n#include <SPI.h>\r\n#include <SD.h>\r\n#include <Wire.h>\r\n#include <MPU6050_tockn.h>\r\n#include <i2c.h>\r\n#include \"i2c_BMP280.h\"\r\n\r\n\r\nBMP280 bmp280;\r\nMPU6050 mpu6050(Wire);\r\n\r\n\r\n//rgb\r\nconst int ledr = 3;\r\nconst int ledg = 5;\r\nconst int ledb = 6;\r\n\r\nlong timer = 0;\r\n\r\nconst int chipselect = 4;\r\n\r\n//pyrochannel 1 and 2(uncomment the following code when in use)\r\n/*\r\nconst int pyro1 = 2;\r\nconst int pyro2 = 4;\r\nconst int buzz = 9;\r\n*/\r\n\r\n//pyro channel 3 and 4 for paracute\r\nconst int pyro3 = 7;\r\nconst int pyro4 = 8;\r\n\r\n//bluetooth(uncomment the following code when in use)\r\n//int state = 0;\r\n\r\n\r\nvoid setup() \r\n{\r\n  //rgb pin out\r\n  pinMode(ledr,OUTPUT);\r\n  pinMode(ledg,OUTPUT);\r\n  pinMode(ledb,OUTPUT);\r\n\r\n\r\n   //bluetooth(uncomment the following code when in use)\r\n  //Serial.begin(38400);\r\n\r\n\r\n  //pyrochannel 1 and 2 pin out (uncomment the following code when in use)\r\n  /*pinMode(pyro1,OUTPUT);\r\n  digitalWrite(pyro1,LOW);\r\n  pinMode(pyro2,OUTPUT);\r\n  digitalWrite(pyro2,LOW);\r\n  pinMode(buzz,OUTPUT);\r\n  */\r\n\r\n  //pyrochannel 3 and 4 pin out\r\n  pinMode(pyro3,OUTPUT);\r\n  digitalWrite(pyro3,LOW);\r\n  pinMode(pyro4,OUTPUT);\r\n  digitalWrite(pyro4,LOW);\r\n  \r\n\r\n  //sd card\r\n  if(!SD.begin(chipselect))\r\n  {\r\n    ledstatus(6,252,104,404);\r\n  }\r\n  else\r\n  ledstatus(204,255,61,100);\r\n\r\n  File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\r\n  dataFile.println(\"Time \\t temperature C \\t altitude m \\t pressure Pa \\t temperature C \\t Accleration-X \\t Accleration-Y \\t Accleration-Z \\t Gyro-X \\t Gyro-Y \\t Gyro-Z \\t Accleration_angel-X \\t Accleration_angel-Y \\t Accleration_angel-Z \\t Gyro_angel-X \\t Gyro_angel-Y \\t Gyro_angel-Z \\t Angel-X \\t Angel-Y \\t Angel-Z \");\r\n  dataFile.close();\r\n  \r\n  //pressure and altitude\r\n  if (bmp280.initialize())\r\n  {\r\n    ledstatus(10,237,245,100);\r\n  }\r\n  else\r\n  ledstatus(9,147,228,404);\r\n   bmp280.setEnabled(0);\r\n   bmp280.triggerMeasurement();\r\n  \r\n  \r\n  \r\n  //MPU6050\r\n  Wire.begin();\r\n  mpu6050.begin();\r\n  mpu6050.calcGyroOffsets(true);\r\n\r\n\r\n\r\n  //bluetooth (uncomment the following code when in use)\r\n    /*\r\n     int lau =0;\r\n     while(lau == '0'){\r\n     if(Serial.available()>0)\r\n    {\r\n      state = Serial.read();\r\n    }\r\n\r\n    if(state == \"1001\")\r\n    {\r\n      digitalWrite(pyro1,HIGH);\r\n      digitalWrite(buzz,HIGH);\r\n      Serial.println(\"PYRO1 active\");\r\n      delay(500)\r\n      digitalWrite(pyro1,LOW);\r\n      digitalWrite(buzz,LOW);\r\n      Serial.println(\"PYRO1 deactive\");\r\n      state = 0;\r\n      lau = 1;\r\n    }\r\n    if(state == \"2002\")\r\n    {\r\n      digitalWrite(pyro1,HIGH);\r\n      digitalWrite(buzz,HIGH);\r\n      Serial.println(\"PYRO2 active\");\r\n      delay(500)\r\n      digitalWrite(pyro2,LOW);\r\n      digitalWrite(buzz,LOW);\r\n      Serial.println(\"PYRO2 deactive\");\r\n      state = 0;\r\n      lau = 1;\r\n    }}\r\n    */\r\n\r\n\r\n   //serial monitor\r\n   Serial.begin(9600);\r\n\r\n\r\n  \r\n}\r\n\r\nvoid loop() \r\n{\r\n    //rgb go-fly\r\n    digitalWrite(ledr,78);\r\n    digitalWrite(ledg,255);\r\n    digitalWrite(ledb,250);\r\n  \r\n    \r\n    //pressure and altitude\r\n    String patdata =\"\";\r\n    bmp280.awaitMeasurement();\r\n    float temperature;\r\n    bmp280.getTemperature(temperature);\r\n    String t = String(temperature);\r\n    float pascal;\r\n    bmp280.getPressure(pascal);\r\n    String pas = String(pascal);\r\n    static float meters, metersold;\r\n    bmp280.getAltitude(meters);\r\n    String met = String(meters);\r\n    bmp280.triggerMeasurement();\r\n    patdata = String(t+\"\\t\"+pas+\"\\t\"+met);\r\n   \r\n   \r\n    //paracute \r\n    float para=0.0;\r\n    int skip =0;\r\n    while(skip == '0'){\r\n    if((meters <= 35.0)&&(meters<=para)){\r\n      skip += 1;\r\n      digitalWrite(pyro3,HIGH);\r\n      delay(500);\r\n      digitalWrite(pyro3,LOW);\r\n      delay(100);\r\n      digitalWrite(pyro4,HIGH);\r\n      delay(500);\r\n      digitalWrite(pyro4,LOW);\r\n    }\r\n     para = meters;\r\n    }\r\n\r\n\r\n    //MPU6050\r\n    mpu6050.update();\r\n    String mpudata = \"\";\r\n    if(millis() - timer > 1000)\r\n    {\r\n      float temp=mpu6050.getTemp();\r\n      String te = String(temp);\r\n      \r\n      float accx = mpu6050.getAccX();\r\n      String ax = String(accx);\r\n      float accy = mpu6050.getAccY();\r\n      String ay = String(accy);\r\n     \r\n\r\n      float gyrox = mpu6050.getGyroX();\r\n      String gx = String(gyrox);\r\n      float gyroy = mpu6050.getGyroY();\r\n      String gy = String(gyroy);\r\n      float gyroz = mpu6050.getGyroZ();\r\n      String gz = String(gyroz);\r\n\r\n      float accanx = mpu6050.getAccAngleX();\r\n      String aax = String(accanx);\r\n      float accany = mpu6050.getAccAngleY();\r\n      String aay = String(accanx);\r\n    \r\n\r\n      float gyroanx = mpu6050.getGyroAngleX();\r\n      String gax = String(gyroanx);\r\n      float gyroany = mpu6050.getGyroAngleY();\r\n      String gay = String(gyroany);\r\n      float gyroanz = mpu6050.getGyroAngleZ();\r\n      String gaz = String(gyroanz);\r\n\r\n      float angx = mpu6050.getAngleX();\r\n      String anx = String(angx);\r\n      float angy = mpu6050.getAngleY();\r\n      String any = String(angy);\r\n      float angz = mpu6050.getAngleZ();\r\n      String anz = String(angz);\r\n      timer = millis();\r\n    \r\n      mpudata = String(te+\"\\t\"+ax+\"\\t\"+ay+\"\\t\"+gx+\"\\t\"+gy+\"\\t\"+gz+\"\\t\"+aax+\"\\t\"+aay+\"\\t\"+gax+\"\\t\"+gay+\"\\t\"+gaz+\"\\t\"+anx+\"\\t\"+any+\"\\t\"+anz);\r\n      \r\n    }\r\n    \r\n\r\n     \r\n    //data to SD card\r\n    String tim = String(millis()/1000);\r\n    String finaldata = tim+\"\\t\"+ patdata +\"\\t\"+ mpudata;\r\n     File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\r\n  if(dataFile)\r\n  {\r\n    dataFile.println(finaldata);\r\n    dataFile.close();\r\n   }\r\n  else\r\n  ledstatus(6,252,104,404);\r\n\r\n  \r\n  //serial moniter\r\n  if (Serial.available()) {     \r\n    Serial.write(String(finaldata));   \r\n  }\r\n  else\r\n  ledstatus(255,0,247,404);\r\n\r\n\r\n\r\n}  \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nvoid ledstatus(int val1, int val2, int val3, int mes)\r\n{ int n = 5;\r\n  if(mes == 404){\r\n    while(n!=0){\r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(500);\r\n    digitalWrite(ledr,0);\r\n    digitalWrite(ledg,0);\r\n    digitalWrite(ledb,0);\r\n    delay(500)\r\n    n--;\r\n  }}\r\n  if(mes == 100)\r\n  {\r\n   \r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(5000);\r\n    digitalWrite(ledr,102);\r\n    digitalWrite(ledg,255);\r\n    digitalWrite(ledb,255);\r\n  \r\n}\r\n}\r\n\n","uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp","version":1}}}
+
+I[13:36:29.906] <-- textDocument/didOpen
+V[13:36:29.907] <<< {"id":1,"jsonrpc":"2.0","method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:36:29.907] <-- textDocument/documentSymbol(1)
+V[13:36:29.909] <<< {"id":2,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":0,"line":2},"start":{"character":0,"line":2}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:36:29.909] <-- textDocument/codeAction(2)
+I[13:36:29.910] Loaded compilation database from C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\compile_commands.json
+I[13:36:29.910] ASTWorker building file C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp version 1 with command clangd fallback
+[C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch]
+C:\MinGW\bin\clang C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp -fsyntax-only -resource-dir=e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\lib\clang\12.0.0
+V[13:36:29.910] Broadcasting compilation database from C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747
+I[13:36:29.910] --> window/workDoneProgress/create(0)
+V[13:36:29.910] >>> {"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+
+I[13:36:29.910] Enqueueing 0 commands for indexing
+V[13:36:29.911] <<< {"id":0,"jsonrpc":"2.0","result":null}
+
+I[13:36:29.911] <-- reply(0)
+I[13:36:29.911] --> $/progress
+V[13:36:29.911] >>> {"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}
+
+I[13:36:29.911] --> $/progress
+V[13:36:29.911] >>> {"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}
+
+I[13:36:29.911] --> $/progress
+V[13:36:29.911] >>> {"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}
+
+I[13:36:29.911] --> $/progress
+V[13:36:29.911] >>> {"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}
+
+V[13:36:29.934] Driver produced command: cc1 -cc1 -triple x86_64-pc-windows-msvc19.11.0 -fsyntax-only -disable-free -disable-llvm-verifier -discard-value-names -main-file-name alt_gyro_datalogger.ino.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu x86-64 -tune-cpu generic -resource-dir e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\lib\clang\12.0.0 -internal-isystem e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\lib\clang\12.0.0\include -internal-isystem C:/Program Files/Microsoft Visual Studio 10.0/VC/include -internal-isystem C:/Program Files/Microsoft Visual Studio 9.0/VC/include -internal-isystem C:/Program Files/Microsoft Visual Studio 9.0/VC/PlatformSDK/Include -internal-isystem C:/Program Files/Microsoft Visual Studio 8/VC/include -internal-isystem C:/Program Files/Microsoft Visual Studio 8/VC/PlatformSDK/Include -fdeprecated-macro -fdebug-compilation-dir C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch -ferror-limit 19 -fno-use-cxa-atexit -fms-extensions -fms-compatibility -fms-compatibility-version=19.11 -std=c++14 -fdelayed-template-parsing -fcxx-exceptions -fexceptions -faddrsig -x c++ C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+V[13:36:29.934] Building first preamble for C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp version 1
+V[13:36:29.958] indexed preamble AST for C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp version 1:
+  symbol slab: 0 symbols, 128 bytes
+  ref slab: 0 symbols, 0 refs, 136 bytes
+  relations slab: 0 relations, 24 bytes
+V[13:36:29.966] Built preamble of size 222148 for file C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp version 1
+V[13:36:30.000] Trying to fix unresolved name "BMP280" in scopes: []
+V[13:36:30.001] Trying to fix unresolved name "MPU6050" in scopes: []
+V[13:36:30.001] Trying to fix unresolved name "Wire" in scopes: []
+V[13:36:30.003] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[13:36:30.005] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[13:36:30.006] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[13:36:30.007] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[13:36:30.007] Trying to fix unresolved name "LOW" in scopes: []
+V[13:36:30.007] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[13:36:30.007] Trying to fix unresolved name "LOW" in scopes: []
+V[13:36:30.007] Trying to fix unresolved name "SD" in scopes: []
+V[13:36:30.008] Trying to fix unresolved name "ledstatus" in scopes: []
+V[13:36:30.009] Trying to fix unresolved name "ledstatus" in scopes: []
+V[13:36:30.009] Trying to fix unresolved name "File" in scopes: []
+V[13:36:30.009] Trying to fix unresolved name "FILE_WRITE" in scopes: []
+V[13:36:30.009] Trying to fix unresolved name "ledstatus" in scopes: []
+V[13:36:30.010] Trying to fix unresolved name "ledstatus" in scopes: []
+V[13:36:30.010] Trying to fix unresolved name "Wire" in scopes: []
+V[13:36:30.013] indexed file AST for C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp version 1:
+  symbol slab: 12 symbols, 7008 bytes
+  ref slab: 12 symbols, 37 refs, 4544 bytes
+  relations slab: 0 relations, 24 bytes
+V[13:36:30.013] Build dynamic index for main-file symbols with estimated memory usage of 18080 bytes
+I[13:36:30.014] --> textDocument/publishDiagnostics
+V[13:36:30.014] >>> {"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"pp_file_not_found","message":"'Arduino.h' file not found","range":{"end":{"character":20,"line":0},"start":{"character":9,"line":0}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'BMP280'","range":{"end":{"character":6,"line":10},"start":{"character":0,"line":10}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'MPU6050'","range":{"end":{"character":7,"line":11},"start":{"character":0,"line":11}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'Wire'","range":{"end":{"character":20,"line":11},"start":{"character":16,"line":11}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":41},"start":{"character":15,"line":41}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":42},"start":{"character":15,"line":42}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":43},"start":{"character":15,"line":43}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":22,"line":59},"start":{"character":16,"line":59}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'LOW'","range":{"end":{"character":24,"line":60},"start":{"character":21,"line":60}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":22,"line":61},"start":{"character":16,"line":61}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'LOW'","range":{"end":{"character":24,"line":62},"start":{"character":21,"line":62}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":8,"line":66},"start":{"character":6,"line":66}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":68},"start":{"character":4,"line":68}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":71},"start":{"character":2,"line":71}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'File'","range":{"end":{"character":6,"line":73},"start":{"character":2,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":20,"line":73},"start":{"character":18,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'FILE_WRITE'","range":{"end":{"character":51,"line":73},"start":{"character":41,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":80},"start":{"character":4,"line":80}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":83},"start":{"character":2,"line":83}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Wire'","range":{"end":{"character":6,"line":90},"start":{"character":2,"line":90}},"severity":1,"source":"clang"},{"code":"fatal_too_many_errors","message":"Too many errors emitted, stopping now","range":{"end":{"character":0,"line":0},"start":{"character":0,"line":0}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp","version":1}}
+
+V[13:36:30.015] ASTWorker running DocumentSymbols on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+I[13:36:30.015] --> reply:textDocument/documentSymbol(1) 108 ms
+V[13:36:30.015] >>> {"id":1,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":13,"line":10},"start":{"character":7,"line":10}}},{"kind":12,"name":"mpu6050","range":{"end":{"character":21,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":15,"line":11},"start":{"character":8,"line":11}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":15},"start":{"character":0,"line":15}},"selectionRange":{"end":{"character":14,"line":15},"start":{"character":10,"line":15}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":14,"line":16},"start":{"character":10,"line":16}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}},{"kind":13,"name":"timer","range":{"end":{"character":14,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":10,"line":19},"start":{"character":5,"line":19}}},{"kind":13,"name":"chipselect","range":{"end":{"character":24,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":20,"line":21},"start":{"character":10,"line":21}}},{"kind":13,"name":"pyro3","range":{"end":{"character":19,"line":31},"start":{"character":0,"line":31}},"selectionRange":{"end":{"character":15,"line":31},"start":{"character":10,"line":31}}},{"kind":13,"name":"pyro4","range":{"end":{"character":19,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":10,"line":32}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":137},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":10,"line":38},"start":{"character":5,"line":38}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":251},"start":{"character":0,"line":139}},"selectionRange":{"end":{"character":9,"line":139},"start":{"character":5,"line":139}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":289},"start":{"character":0,"line":263}},"selectionRange":{"end":{"character":14,"line":263},"start":{"character":5,"line":263}}}]}
+
+V[13:36:30.015] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+I[13:36:30.015] --> reply:textDocument/codeAction(2) 106 ms
+V[13:36:30.015] >>> {"id":2,"jsonrpc":"2.0","result":[]}
+
+V[13:36:30.354] <<< {"id":3,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":0,"line":2},"start":{"character":0,"line":2}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:36:30.354] <-- textDocument/codeAction(3)
+V[13:36:30.354] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+I[13:36:30.355] --> reply:textDocument/codeAction(3) 0 ms
+V[13:36:30.355] >>> {"id":3,"jsonrpc":"2.0","result":[]}
+
+V[13:36:30.357] <<< {"id":4,"jsonrpc":"2.0","method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:36:30.357] <-- textDocument/documentSymbol(4)
+V[13:36:30.358] ASTWorker running DocumentSymbols on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+I[13:36:30.359] --> reply:textDocument/documentSymbol(4) 2 ms
+V[13:36:30.360] >>> {"id":4,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":13,"line":10},"start":{"character":7,"line":10}}},{"kind":12,"name":"mpu6050","range":{"end":{"character":21,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":15,"line":11},"start":{"character":8,"line":11}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":15},"start":{"character":0,"line":15}},"selectionRange":{"end":{"character":14,"line":15},"start":{"character":10,"line":15}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":14,"line":16},"start":{"character":10,"line":16}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}},{"kind":13,"name":"timer","range":{"end":{"character":14,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":10,"line":19},"start":{"character":5,"line":19}}},{"kind":13,"name":"chipselect","range":{"end":{"character":24,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":20,"line":21},"start":{"character":10,"line":21}}},{"kind":13,"name":"pyro3","range":{"end":{"character":19,"line":31},"start":{"character":0,"line":31}},"selectionRange":{"end":{"character":15,"line":31},"start":{"character":10,"line":31}}},{"kind":13,"name":"pyro4","range":{"end":{"character":19,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":10,"line":32}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":137},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":10,"line":38},"start":{"character":5,"line":38}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":251},"start":{"character":0,"line":139}},"selectionRange":{"end":{"character":9,"line":139},"start":{"character":5,"line":139}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":289},"start":{"character":0,"line":263}},"selectionRange":{"end":{"character":14,"line":263},"start":{"character":5,"line":263}}}]}
+
+V[13:40:43.591] <<< {"id":5,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":12,"line":215},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:40:43.591] <-- textDocument/hover(5)
+V[13:40:43.604] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+I[13:40:43.624] --> reply:textDocument/hover(5) 33 ms
+V[13:40:43.624] >>> {"id":5,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `angx`  \n\n---\nType: `float`  \n\n---\n```cpp\n// In loop\nfloat angx\n```"},"range":{"end":{"character":16,"line":215},"start":{"character":12,"line":215}}}}
+
+V[13:40:43.855] <<< {"id":6,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":11,"line":216},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:40:43.855] <-- textDocument/hover(6)
+V[13:40:43.855] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+I[13:40:43.866] --> reply:textDocument/hover(6) 10 ms
+V[13:40:43.866] >>> {"id":6,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `anx`  \n\n---\nType: `int`  \n\n---\n```cpp\n// In loop\npublic: int anx\n```"},"range":{"end":{"character":12,"line":216},"start":{"character":6,"line":216}}}}
+
+V[13:40:46.192] <<< {"id":7,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":17,"line":210},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:40:46.192] <-- textDocument/hover(7)
+V[13:40:46.192] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+I[13:40:46.200] --> reply:textDocument/hover(7) 7 ms
+V[13:40:46.200] >>> {"id":7,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `gyroany`  \n\n---\nType: `float`  \n\n---\n```cpp\n// In loop\nfloat gyroany\n```"},"range":{"end":{"character":19,"line":210},"start":{"character":12,"line":210}}}}
+
+V[13:40:46.561] <<< {"id":8,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":20,"line":199},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server865228747/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:40:46.561] <-- textDocument/hover(8)
+V[13:40:46.561] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server865228747\sketch\alt_gyro_datalogger.ino.cpp
+I[13:40:46.565] --> reply:textDocument/hover(8) 3 ms
+V[13:40:46.565] >>> {"id":8,"jsonrpc":"2.0","result":null}
+
+V[13:42:30.233] <<< {"id":9,"jsonrpc":"2.0","method":"shutdown","params":null}
+
+I[13:42:30.233] <-- shutdown(9)
+I[13:42:30.233] --> reply:shutdown(9) 0 ms
+V[13:42:30.233] >>> {"id":9,"jsonrpc":"2.0","result":null}
+
+V[13:42:30.238] <<< {"jsonrpc":"2.0","method":"exit","params":null}
+
+I[13:42:30.238] <-- exit
+I[13:42:30.238] LSP finished, exiting with status 0
+
+
+
+
+
+
+
+Started logging.
+I[12:24:37.632] clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)
+I[12:24:37.633] PID: 22748
+I[12:24:37.633] Working directory: d:\arduino codes\alt_gyro_datalogger\alt_gyro_datalogger
+I[12:24:37.633] argv[0]: e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\bin\clangd.exe
+I[12:24:37.633] argv[1]: -log=verbose
+I[12:24:37.633] argv[2]: --compile-commands-dir=C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559
+I[12:24:37.633] argv[3]: -query-driver=C:\Users\Anniesh\AppData\Local\Arduino15\packages\**
+V[12:24:37.641] User config file is C:\Users\Anniesh\AppData\Local\clangd\config.yaml
+I[12:24:37.642] Starting LSP over stdin/stdout
+V[12:24:37.646] <<< {"id":0,"jsonrpc":"2.0","method":"initialize","params":{"capabilities":{"textDocument":{"codeAction":{"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}},"dynamicRegistration":true,"isPreferredSupport":true},"colorProvider":{"dynamicRegistration":true},"completion":{"completionItem":{"documentationFormat":["markdown","plaintext"],"snippetSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"declaration":{"linkSupport":true},"definition":{"linkSupport":true},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"documentSymbol":{"hierarchicalDocumentSymbolSupport":true,"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"foldingRange":{"dynamicRegistration":true,"lineFoldingOnly":true,"rangeLimit":5000},"formatting":{"dynamicRegistration":true},"hover":{"contentFormat":["markdown","plaintext"]},"implementation":{"dynamicRegistration":true,"linkSupport":true},"rangeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"signatureHelp":{"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true}}},"synchronization":{"didSave":true,"willSave":true,"willSaveWaitUntil":true},"typeDefinition":{"linkSupport":true}},"window":{"workDoneProgress":true},"workspace":{"applyEdit":true,"configuration":true,"didChangeWatchedFiles":{"dynamicRegistration":true},"executeCommand":{"dynamicRegistration":true},"symbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"]},"workspaceFolders":true}},"clientInfo":{"name":"vscode","version":"1.50.0"},"initializationOptions":{},"processId":11732,"rootPath":"C:\\Users\\Anniesh\\AppData\\Local\\Temp\\arduino-language-server270391559\\sketch","rootUri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch","trace":"off"}}
+
+I[12:24:37.647] <-- initialize(0)
+I[12:24:37.679] --> reply:initialize(0) 32 ms
+V[12:24:37.679] >>> {"id":0,"jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":[],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","enum","enumMember","type","dependent","dependent","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)"}}}
+
+V[12:24:37.680] <<< {"jsonrpc":"2.0","method":"initialized","params":{}}
+
+I[12:24:37.680] <-- initialized
+V[12:24:37.684] <<< {"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"languageId":"cpp","text":"#include <Arduino.h>\n#line 1 \"D:\\\\arduino codes\\\\alt_gyro_datalogger\\\\alt_gyro_datalogger\\\\alt_gyro_datalogger.ino\"\n#include <SPI.h>\r\n#include <SD.h>\r\n#include <Wire.h>\r\n#include <MPU6050_tockn.h>\r\n#include <i2c.h>\r\n#include \"i2c_BMP280.h\"\r\n\r\n\r\nBMP280 bmp280;\r\nMPU6050 mpu6050(Wire);\r\n\r\n\r\n//rgb\r\nconst int ledr = 3;\r\nconst int ledg = 5;\r\nconst int ledb = 6;\r\n\r\nlong timer = 0;\r\n\r\nconst int chipselect = 4;\r\n\r\n//pyrochannel 1 and 2(uncomment the following code when in use)\r\n/*\r\nconst int pyro1 = 2;\r\nconst int pyro2 = 4;\r\nconst int buzz = 9;\r\n*/\r\n\r\n//pyro channel 3 and 4 for paracute\r\nconst int pyro3 = 7;\r\nconst int pyro4 = 8;\r\n\r\n//bluetooth(uncomment the following code when in use)\r\n//int state = 0;\r\n\r\n\r\nvoid setup() \r\n{\r\n  //rgb pin out\r\n  pinMode(ledr,OUTPUT);\r\n  pinMode(ledg,OUTPUT);\r\n  pinMode(ledb,OUTPUT);\r\n\r\n\r\n   //bluetooth(uncomment the following code when in use)\r\n  //Serial.begin(38400);\r\n\r\n\r\n  //pyrochannel 1 and 2 pin out (uncomment the following code when in use)\r\n  /*pinMode(pyro1,OUTPUT);\r\n  digitalWrite(pyro1,LOW);\r\n  pinMode(pyro2,OUTPUT);\r\n  digitalWrite(pyro2,LOW);\r\n  pinMode(buzz,OUTPUT);\r\n  */\r\n\r\n  //pyrochannel 3 and 4 pin out\r\n  pinMode(pyro3,OUTPUT);\r\n  digitalWrite(pyro3,LOW);\r\n  pinMode(pyro4,OUTPUT);\r\n  digitalWrite(pyro4,LOW);\r\n  \r\n\r\n  //sd card\r\n  if(!SD.begin(chipselect))\r\n  {\r\n    ledstatus(6,252,104,404);\r\n  }\r\n  else\r\n  ledstatus(204,255,61,100);\r\n\r\n  File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\r\n  dataFile.println(\"Time \\t temperature C \\t altitude m \\t pressure Pa \\t temperature C \\t Accleration-X \\t Accleration-Y \\t Accleration-Z \\t Gyro-X \\t Gyro-Y \\t Gyro-Z \\t Accleration_angel-X \\t Accleration_angel-Y \\t Accleration_angel-Z \\t Gyro_angel-X \\t Gyro_angel-Y \\t Gyro_angel-Z \\t Angel-X \\t Angel-Y \\t Angel-Z \");\r\n  dataFile.close();\r\n  \r\n  //pressure and altitude\r\n  if (bmp280.initialize())\r\n  {\r\n    ledstatus(10,237,245,100);\r\n  }\r\n  else\r\n  ledstatus(9,147,228,404);\r\n   bmp280.setEnabled(0);\r\n   bmp280.triggerMeasurement();\r\n  \r\n  \r\n  \r\n  //MPU6050\r\n  Wire.begin();\r\n  mpu6050.begin();\r\n  mpu6050.calcGyroOffsets(true);\r\n\r\n\r\n\r\n  //bluetooth (uncomment the following code when in use)\r\n    /*\r\n     int lau =0;\r\n     while(lau == '0'){\r\n     if(Serial.available()>0)\r\n    {\r\n      state = Serial.read();\r\n    }\r\n\r\n    if(state == \"1001\")\r\n    {\r\n      digitalWrite(pyro1,HIGH);\r\n      digitalWrite(buzz,HIGH);\r\n      Serial.println(\"PYRO1 active\");\r\n      delay(500)\r\n      digitalWrite(pyro1,LOW);\r\n      digitalWrite(buzz,LOW);\r\n      Serial.println(\"PYRO1 deactive\");\r\n      state = 0;\r\n      lau = 1;\r\n    }\r\n    if(state == \"2002\")\r\n    {\r\n      digitalWrite(pyro1,HIGH);\r\n      digitalWrite(buzz,HIGH);\r\n      Serial.println(\"PYRO2 active\");\r\n      delay(500)\r\n      digitalWrite(pyro2,LOW);\r\n      digitalWrite(buzz,LOW);\r\n      Serial.println(\"PYRO2 deactive\");\r\n      state = 0;\r\n      lau = 1;\r\n    }}\r\n    */\r\n\r\n\r\n   //serial monitor\r\n   Serial.begin(9600);\r\n\r\n\r\n  \r\n}\r\n\r\nvoid loop() \r\n{\r\n    //rgb go-fly\r\n    digitalWrite(ledr,78);\r\n    digitalWrite(ledg,255);\r\n    digitalWrite(ledb,250);\r\n  \r\n    \r\n    //pressure and altitude\r\n    String patdata =\"\";\r\n    bmp280.awaitMeasurement();\r\n    float temperature;\r\n    bmp280.getTemperature(temperature);\r\n    String t = String(temperature);\r\n    float pascal;\r\n    bmp280.getPressure(pascal);\r\n    String pas = String(pascal);\r\n    static float meters, metersold;\r\n    bmp280.getAltitude(meters);\r\n    String met = String(meters);\r\n    bmp280.triggerMeasurement();\r\n    patdata = String(t+\"\\t\"+pas+\"\\t\"+met);\r\n   \r\n   \r\n    //paracute \r\n    float para=0.0;\r\n    int skip =0;\r\n    while(skip == '0'){\r\n    if((meters <= 35.0)&&(meters<=para)){\r\n      skip += 1;\r\n      digitalWrite(pyro3,HIGH);\r\n      delay(500);\r\n      digitalWrite(pyro3,LOW);\r\n      delay(100);\r\n      digitalWrite(pyro4,HIGH);\r\n      delay(500);\r\n      digitalWrite(pyro4,LOW);\r\n    }\r\n     para = meters;\r\n    }\r\n\r\n\r\n    //MPU6050\r\n    mpu6050.update();\r\n    String mpudata = \"\";\r\n    if(millis() - timer > 1000)\r\n    {\r\n      float temp=mpu6050.getTemp();\r\n      String te = String(temp);\r\n      \r\n      float accx = mpu6050.getAccX();\r\n      String ax = String(accx);\r\n      float accy = mpu6050.getAccY();\r\n      String ay = String(accy);\r\n     \r\n\r\n      float gyrox = mpu6050.getGyroX();\r\n      String gx = String(gyrox);\r\n      float gyroy = mpu6050.getGyroY();\r\n      String gy = String(gyroy);\r\n      float gyroz = mpu6050.getGyroZ();\r\n      String gz = String(gyroz);\r\n\r\n      float accanx = mpu6050.getAccAngleX();\r\n      String aax = String(accanx);\r\n      float accany = mpu6050.getAccAngleY();\r\n      String aay = String(accanx);\r\n    \r\n\r\n      float gyroanx = mpu6050.getGyroAngleX();\r\n      String gax = String(gyroanx);\r\n      float gyroany = mpu6050.getGyroAngleY();\r\n      String gay = String(gyroany);\r\n      float gyroanz = mpu6050.getGyroAngleZ();\r\n      String gaz = String(gyroanz);\r\n\r\n      float angx = mpu6050.getAngleX();\r\n      String anx = String(angx);\r\n      float angy = mpu6050.getAngleY();\r\n      String any = String(angy);\r\n      float angz = mpu6050.getAngleZ();\r\n      String anz = String(angz);\r\n      timer = millis();\r\n    \r\n      mpudata = String(te+\"\\t\"+ax+\"\\t\"+ay+\"\\t\"+gx+\"\\t\"+gy+\"\\t\"+gz+\"\\t\"+aax+\"\\t\"+aay+\"\\t\"+gax+\"\\t\"+gay+\"\\t\"+gaz+\"\\t\"+anx+\"\\t\"+any+\"\\t\"+anz);\r\n      \r\n    }\r\n    \r\n\r\n     \r\n    //data to SD card\r\n    String tim = String(millis()/1000);\r\n    String finaldata = tim+\"\\t\"+ patdata +\"\\t\"+ mpudata;\r\n     File dataFile = SD.open(\"datalog.txt\", FILE_WRITE);\r\n  if(dataFile)\r\n  {\r\n    dataFile.println(finaldata);\r\n    dataFile.close();\r\n   }\r\n  else\r\n  ledstatus(6,252,104,404);\r\n\r\n  \r\n  //serial moniter\r\n  if (Serial.available()) {     \r\n    Serial.write(String(finaldata));   \r\n  }\r\n  else\r\n  ledstatus(255,0,247,404);\r\n\r\n\r\n\r\n}  \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nvoid ledstatus(int val1, int val2, int val3, int mes)\r\n{ int n = 5;\r\n  if(mes == 404){\r\n    while(n!=0){\r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(500);\r\n    digitalWrite(ledr,0);\r\n    digitalWrite(ledg,0);\r\n    digitalWrite(ledb,0);\r\n    delay(500)\r\n    n--;\r\n  }}\r\n  if(mes == 100)\r\n  {\r\n   \r\n    digitalWrite(ledr,val1);\r\n    digitalWrite(ledg,val2);\r\n    digitalWrite(ledb,val3);\r\n    delay(5000);\r\n    digitalWrite(ledr,102);\r\n    digitalWrite(ledg,255);\r\n    digitalWrite(ledb,255);\r\n  \r\n}\r\n}\r\n\n","uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp","version":1}}}
+
+I[12:24:37.684] <-- textDocument/didOpen
+V[12:24:37.687] <<< {"id":1,"jsonrpc":"2.0","method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:24:37.687] <-- textDocument/documentSymbol(1)
+I[12:24:37.692] Loaded compilation database from C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\compile_commands.json
+V[12:24:37.692] Broadcasting compilation database from C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559
+I[12:24:37.693] ASTWorker building file C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp version 1 with command clangd fallback
+[C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch]
+C:\MinGW\bin\clang C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp -fsyntax-only -resource-dir=e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\lib\clang\12.0.0
+I[12:24:37.693] --> window/workDoneProgress/create(0)
+V[12:24:37.693] >>> {"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+
+I[12:24:37.693] Enqueueing 0 commands for indexing
+V[12:24:37.694] <<< {"id":2,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":0,"line":2},"start":{"character":0,"line":2}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:24:37.694] <-- textDocument/codeAction(2)
+V[12:24:37.694] <<< {"id":0,"jsonrpc":"2.0","result":null}
+
+I[12:24:37.694] <-- reply(0)
+I[12:24:37.694] --> $/progress
+V[12:24:37.694] >>> {"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}
+
+I[12:24:37.694] --> $/progress
+V[12:24:37.695] >>> {"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}
+
+I[12:24:37.695] --> $/progress
+V[12:24:37.695] >>> {"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}
+
+I[12:24:37.695] --> $/progress
+V[12:24:37.695] >>> {"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}
+
+V[12:24:37.730] Driver produced command: cc1 -cc1 -triple x86_64-pc-windows-msvc19.11.0 -fsyntax-only -disable-free -disable-llvm-verifier -discard-value-names -main-file-name alt_gyro_datalogger.ino.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu x86-64 -tune-cpu generic -resource-dir e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\lib\clang\12.0.0 -internal-isystem e:\arduino 2.0\Arduino IDE\resources\app\node_modules\arduino-ide-extension\build\lib\clang\12.0.0\include -internal-isystem C:/Program Files/Microsoft Visual Studio 10.0/VC/include -internal-isystem C:/Program Files/Microsoft Visual Studio 9.0/VC/include -internal-isystem C:/Program Files/Microsoft Visual Studio 9.0/VC/PlatformSDK/Include -internal-isystem C:/Program Files/Microsoft Visual Studio 8/VC/include -internal-isystem C:/Program Files/Microsoft Visual Studio 8/VC/PlatformSDK/Include -fdeprecated-macro -fdebug-compilation-dir C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch -ferror-limit 19 -fno-use-cxa-atexit -fms-extensions -fms-compatibility -fms-compatibility-version=19.11 -std=c++14 -fdelayed-template-parsing -fcxx-exceptions -fexceptions -faddrsig -x c++ C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+V[12:24:37.730] Building first preamble for C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp version 1
+V[12:24:37.769] indexed preamble AST for C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp version 1:
+  symbol slab: 0 symbols, 128 bytes
+  ref slab: 0 symbols, 0 refs, 136 bytes
+  relations slab: 0 relations, 24 bytes
+V[12:24:37.778] Built preamble of size 222148 for file C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp version 1
+V[12:24:37.836] Trying to fix unresolved name "BMP280" in scopes: []
+V[12:24:37.841] Trying to fix unresolved name "MPU6050" in scopes: []
+V[12:24:37.842] Trying to fix unresolved name "Wire" in scopes: []
+V[12:24:37.856] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[12:24:37.856] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[12:24:37.856] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[12:24:37.857] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[12:24:37.857] Trying to fix unresolved name "LOW" in scopes: []
+V[12:24:37.857] Trying to fix unresolved name "OUTPUT" in scopes: []
+V[12:24:37.857] Trying to fix unresolved name "LOW" in scopes: []
+V[12:24:37.858] Trying to fix unresolved name "SD" in scopes: []
+V[12:24:37.859] Trying to fix unresolved name "ledstatus" in scopes: []
+V[12:24:37.859] Trying to fix unresolved name "ledstatus" in scopes: []
+V[12:24:37.859] Trying to fix unresolved name "File" in scopes: []
+V[12:24:37.859] Trying to fix unresolved name "FILE_WRITE" in scopes: []
+V[12:24:37.860] Trying to fix unresolved name "ledstatus" in scopes: []
+V[12:24:37.860] Trying to fix unresolved name "ledstatus" in scopes: []
+V[12:24:37.860] Trying to fix unresolved name "Wire" in scopes: []
+V[12:24:37.873] indexed file AST for C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp version 1:
+  symbol slab: 12 symbols, 7008 bytes
+  ref slab: 12 symbols, 37 refs, 4544 bytes
+  relations slab: 0 relations, 24 bytes
+V[12:24:37.873] Build dynamic index for main-file symbols with estimated memory usage of 18080 bytes
+I[12:24:37.873] --> textDocument/publishDiagnostics
+V[12:24:37.874] >>> {"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"pp_file_not_found","message":"'Arduino.h' file not found","range":{"end":{"character":20,"line":0},"start":{"character":9,"line":0}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'BMP280'","range":{"end":{"character":6,"line":10},"start":{"character":0,"line":10}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'MPU6050'","range":{"end":{"character":7,"line":11},"start":{"character":0,"line":11}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'Wire'","range":{"end":{"character":20,"line":11},"start":{"character":16,"line":11}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":41},"start":{"character":15,"line":41}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":42},"start":{"character":15,"line":42}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":43},"start":{"character":15,"line":43}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":22,"line":59},"start":{"character":16,"line":59}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'LOW'","range":{"end":{"character":24,"line":60},"start":{"character":21,"line":60}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":22,"line":61},"start":{"character":16,"line":61}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'LOW'","range":{"end":{"character":24,"line":62},"start":{"character":21,"line":62}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":8,"line":66},"start":{"character":6,"line":66}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":68},"start":{"character":4,"line":68}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":71},"start":{"character":2,"line":71}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'File'","range":{"end":{"character":6,"line":73},"start":{"character":2,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":20,"line":73},"start":{"character":18,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'FILE_WRITE'","range":{"end":{"character":51,"line":73},"start":{"character":41,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":80},"start":{"character":4,"line":80}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":83},"start":{"character":2,"line":83}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Wire'","range":{"end":{"character":6,"line":90},"start":{"character":2,"line":90}},"severity":1,"source":"clang"},{"code":"fatal_too_many_errors","message":"Too many errors emitted, stopping now","range":{"end":{"character":0,"line":0},"start":{"character":0,"line":0}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp","version":1}}
+
+V[12:24:37.874] ASTWorker running DocumentSymbols on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:24:37.875] --> reply:textDocument/documentSymbol(1) 188 ms
+V[12:24:37.875] >>> {"id":1,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":13,"line":10},"start":{"character":7,"line":10}}},{"kind":12,"name":"mpu6050","range":{"end":{"character":21,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":15,"line":11},"start":{"character":8,"line":11}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":15},"start":{"character":0,"line":15}},"selectionRange":{"end":{"character":14,"line":15},"start":{"character":10,"line":15}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":14,"line":16},"start":{"character":10,"line":16}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}},{"kind":13,"name":"timer","range":{"end":{"character":14,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":10,"line":19},"start":{"character":5,"line":19}}},{"kind":13,"name":"chipselect","range":{"end":{"character":24,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":20,"line":21},"start":{"character":10,"line":21}}},{"kind":13,"name":"pyro3","range":{"end":{"character":19,"line":31},"start":{"character":0,"line":31}},"selectionRange":{"end":{"character":15,"line":31},"start":{"character":10,"line":31}}},{"kind":13,"name":"pyro4","range":{"end":{"character":19,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":10,"line":32}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":137},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":10,"line":38},"start":{"character":5,"line":38}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":251},"start":{"character":0,"line":139}},"selectionRange":{"end":{"character":9,"line":139},"start":{"character":5,"line":139}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":289},"start":{"character":0,"line":263}},"selectionRange":{"end":{"character":14,"line":263},"start":{"character":5,"line":263}}}]}
+
+V[12:24:37.875] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:24:37.875] --> reply:textDocument/codeAction(2) 181 ms
+V[12:24:37.875] >>> {"id":2,"jsonrpc":"2.0","result":[]}
+
+V[12:24:38.203] <<< {"id":3,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":0,"line":2},"start":{"character":0,"line":2}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:24:38.203] <-- textDocument/codeAction(3)
+V[12:24:38.203] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:24:38.203] --> reply:textDocument/codeAction(3) 0 ms
+V[12:24:38.203] >>> {"id":3,"jsonrpc":"2.0","result":[]}
+
+V[12:24:38.203] <<< {"id":4,"jsonrpc":"2.0","method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:24:38.203] <-- textDocument/documentSymbol(4)
+V[12:24:38.203] ASTWorker running DocumentSymbols on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:24:38.204] --> reply:textDocument/documentSymbol(4) 0 ms
+V[12:24:38.204] >>> {"id":4,"jsonrpc":"2.0","result":[{"kind":13,"name":"bmp280","range":{"end":{"character":13,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":13,"line":10},"start":{"character":7,"line":10}}},{"kind":12,"name":"mpu6050","range":{"end":{"character":21,"line":11},"start":{"character":0,"line":11}},"selectionRange":{"end":{"character":15,"line":11},"start":{"character":8,"line":11}}},{"kind":13,"name":"ledr","range":{"end":{"character":18,"line":15},"start":{"character":0,"line":15}},"selectionRange":{"end":{"character":14,"line":15},"start":{"character":10,"line":15}}},{"kind":13,"name":"ledg","range":{"end":{"character":18,"line":16},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":14,"line":16},"start":{"character":10,"line":16}}},{"kind":13,"name":"ledb","range":{"end":{"character":18,"line":17},"start":{"character":0,"line":17}},"selectionRange":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}},{"kind":13,"name":"timer","range":{"end":{"character":14,"line":19},"start":{"character":0,"line":19}},"selectionRange":{"end":{"character":10,"line":19},"start":{"character":5,"line":19}}},{"kind":13,"name":"chipselect","range":{"end":{"character":24,"line":21},"start":{"character":0,"line":21}},"selectionRange":{"end":{"character":20,"line":21},"start":{"character":10,"line":21}}},{"kind":13,"name":"pyro3","range":{"end":{"character":19,"line":31},"start":{"character":0,"line":31}},"selectionRange":{"end":{"character":15,"line":31},"start":{"character":10,"line":31}}},{"kind":13,"name":"pyro4","range":{"end":{"character":19,"line":32},"start":{"character":0,"line":32}},"selectionRange":{"end":{"character":15,"line":32},"start":{"character":10,"line":32}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":137},"start":{"character":0,"line":38}},"selectionRange":{"end":{"character":10,"line":38},"start":{"character":5,"line":38}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":251},"start":{"character":0,"line":139}},"selectionRange":{"end":{"character":9,"line":139},"start":{"character":5,"line":139}}},{"kind":12,"name":"ledstatus","range":{"end":{"character":1,"line":289},"start":{"character":0,"line":263}},"selectionRange":{"end":{"character":14,"line":263},"start":{"character":5,"line":263}}}]}
+
+V[12:25:39.202] <<< {"id":5,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":33,"line":74},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:25:39.202] <-- textDocument/hover(5)
+V[12:25:39.213] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:25:39.216] --> reply:textDocument/hover(5) 14 ms
+V[12:25:39.216] >>> {"id":5,"jsonrpc":"2.0","result":null}
+
+V[12:25:39.746] <<< {"id":6,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":35,"line":74},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:25:39.747] <-- textDocument/hover(6)
+V[12:25:39.747] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:25:39.749] --> reply:textDocument/hover(6) 2 ms
+V[12:25:39.749] >>> {"id":6,"jsonrpc":"2.0","result":null}
+
+V[12:25:42.925] <<< {"id":7,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":35,"line":74},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:25:42.925] <-- textDocument/hover(7)
+V[12:25:42.925] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:25:42.927] --> reply:textDocument/hover(7) 1 ms
+V[12:25:42.927] >>> {"id":7,"jsonrpc":"2.0","result":null}
+
+V[12:31:06.108] <<< {"id":8,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":4,"line":14},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:06.108] <-- textDocument/hover(8)
+V[12:31:06.112] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:06.115] --> reply:textDocument/hover(8) 6 ms
+V[12:31:06.115] >>> {"id":8,"jsonrpc":"2.0","result":null}
+
+V[12:31:07.020] <<< {"id":9,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":0,"line":15},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:07.020] <-- textDocument/hover(9)
+V[12:31:07.020] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:07.035] --> reply:textDocument/hover(9) 15 ms
+V[12:31:07.035] >>> {"id":9,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `ledr`  \n\n---\nType: `const int`  \nValue = `3`  \nrgb  \n\n---\n```cpp\nconst int ledr = 3\n```"},"range":{"end":{"character":5,"line":15},"start":{"character":0,"line":15}}}}
+
+V[12:31:08.992] <<< {"id":10,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":6,"line":17},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:08.992] <-- textDocument/hover(10)
+V[12:31:08.992] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:08.994] --> reply:textDocument/hover(10) 2 ms
+V[12:31:08.995] >>> {"id":10,"jsonrpc":"2.0","result":null}
+
+V[12:31:09.698] <<< {"id":11,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":0,"line":16},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:09.698] <-- textDocument/hover(11)
+V[12:31:09.698] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:09.709] --> reply:textDocument/hover(11) 10 ms
+V[12:31:09.709] >>> {"id":11,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `ledg`  \n\n---\nType: `const int`  \nValue = `5`  \n\n---\n```cpp\nconst int ledg = 5\n```"},"range":{"end":{"character":5,"line":16},"start":{"character":0,"line":16}}}}
+
+V[12:31:11.153] <<< {"id":12,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":19,"line":17},"start":{"character":19,"line":17}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:11.153] <-- textDocument/codeAction(12)
+V[12:31:11.156] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:11.156] --> reply:textDocument/codeAction(12) 3 ms
+V[12:31:11.156] >>> {"id":12,"jsonrpc":"2.0","result":[]}
+
+V[12:31:12.354] <<< {"id":13,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":25,"line":21},"start":{"character":25,"line":21}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:12.354] <-- textDocument/codeAction(13)
+V[12:31:12.355] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:12.355] --> reply:textDocument/codeAction(13) 0 ms
+V[12:31:12.355] >>> {"id":13,"jsonrpc":"2.0","result":[]}
+
+V[12:31:13.381] <<< {"id":14,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":25,"line":21},"start":{"character":0,"line":16}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:13.381] <-- textDocument/codeAction(14)
+V[12:31:13.381] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:13.381] --> reply:textDocument/codeAction(14) 0 ms
+V[12:31:13.381] >>> {"id":14,"jsonrpc":"2.0","result":[]}
+
+V[12:31:13.749] <<< {"id":15,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":25,"line":21},"start":{"character":0,"line":15}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:13.749] <-- textDocument/codeAction(15)
+V[12:31:13.749] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:13.750] --> reply:textDocument/codeAction(15) 0 ms
+V[12:31:13.750] >>> {"id":15,"jsonrpc":"2.0","result":[]}
+
+V[12:31:14.960] <<< {"id":16,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":5,"line":15},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:14.961] <-- textDocument/hover(16)
+V[12:31:14.961] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:14.963] --> reply:textDocument/hover(16) 2 ms
+V[12:31:14.963] >>> {"id":16,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `ledr`  \n\n---\nType: `const int`  \nValue = `3`  \nrgb  \n\n---\n```cpp\nconst int ledr = 3\n```"},"range":{"end":{"character":5,"line":15},"start":{"character":0,"line":15}}}}
+
+V[12:31:16.231] <<< {"id":17,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":10,"line":17},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:16.231] <-- textDocument/hover(17)
+V[12:31:16.234] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:16.236] --> reply:textDocument/hover(17) 4 ms
+V[12:31:16.236] >>> {"id":17,"jsonrpc":"2.0","result":{"contents":{"kind":"markdown","value":"### variable `ledb`  \n\n---\nType: `const int`  \nValue = `6`  \n\n---\n```cpp\nconst int ledb = 6\n```"},"range":{"end":{"character":14,"line":17},"start":{"character":10,"line":17}}}}
+
+V[12:31:17.434] <<< {"id":18,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":6,"line":16},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:31:17.434] <-- textDocument/hover(18)
+V[12:31:17.434] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:31:17.436] --> reply:textDocument/hover(18) 2 ms
+V[12:31:17.436] >>> {"id":18,"jsonrpc":"2.0","result":null}
+
+V[12:37:36.448] <<< {"id":19,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":26,"line":52},"start":{"character":26,"line":52}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:37:36.448] <-- textDocument/codeAction(19)
+V[12:37:36.451] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:37:36.451] --> reply:textDocument/codeAction(19) 3 ms
+V[12:37:36.451] >>> {"id":19,"jsonrpc":"2.0","result":[]}
+
+V[12:40:00.886] <<< {"id":20,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":23,"line":43},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:40:00.886] <-- textDocument/hover(20)
+V[12:40:00.889] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:40:00.891] --> reply:textDocument/hover(20) 4 ms
+V[12:40:00.891] >>> {"id":20,"jsonrpc":"2.0","result":null}
+
+V[12:40:02.109] <<< {"id":21,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":41},"start":{"character":15,"line":41}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":42},"start":{"character":15,"line":42}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'OUTPUT'","range":{"end":{"character":21,"line":43},"start":{"character":15,"line":43}},"severity":1,"source":"clang"}]},"range":{"end":{"character":23,"line":43},"start":{"character":2,"line":41}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:40:02.109] <-- textDocument/codeAction(21)
+V[12:40:02.109] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:40:02.112] --> reply:textDocument/codeAction(21) 2 ms
+V[12:40:02.112] >>> {"id":21,"jsonrpc":"2.0","result":[{"command":{"arguments":[{"file":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp","selection":{"end":{"character":23,"line":43},"start":{"character":2,"line":41}},"tweakID":"ExtractFunction"}],"command":"clangd.applyTweak","title":"Extract to function"},"kind":"refactor","title":"Extract to function"}]}
+
+V[12:40:02.460] <<< {"id":22,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":2,"line":41},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:40:02.460] <-- textDocument/hover(22)
+V[12:40:02.460] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:40:02.462] --> reply:textDocument/hover(22) 1 ms
+V[12:40:02.462] >>> {"id":22,"jsonrpc":"2.0","result":null}
+
+V[12:41:59.004] <<< {"id":23,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":35,"line":189},"start":{"character":35,"line":189}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:41:59.004] <-- textDocument/codeAction(23)
+V[12:41:59.006] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:41:59.006] --> reply:textDocument/codeAction(23) 2 ms
+V[12:41:59.006] >>> {"id":23,"jsonrpc":"2.0","result":[]}
+
+V[12:46:26.067] <<< {"id":24,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":25,"line":50},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:46:26.067] <-- textDocument/hover(24)
+V[12:46:26.070] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:46:26.072] --> reply:textDocument/hover(24) 5 ms
+V[12:46:26.072] >>> {"id":24,"jsonrpc":"2.0","result":null}
+
+V[12:59:38.120] <<< {"id":25,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":4,"line":52},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:38.120] <-- textDocument/hover(25)
+V[12:59:38.123] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:38.127] --> reply:textDocument/hover(25) 7 ms
+V[12:59:38.127] >>> {"id":25,"jsonrpc":"2.0","result":null}
+
+V[12:59:38.570] <<< {"id":26,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":4,"line":52},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:38.570] <-- textDocument/hover(26)
+V[12:59:38.570] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:38.573] --> reply:textDocument/hover(26) 2 ms
+V[12:59:38.573] >>> {"id":26,"jsonrpc":"2.0","result":null}
+
+V[12:59:39.114] <<< {"id":27,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":3,"line":52},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:39.114] <-- textDocument/hover(27)
+V[12:59:39.114] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:39.116] --> reply:textDocument/hover(27) 2 ms
+V[12:59:39.116] >>> {"id":27,"jsonrpc":"2.0","result":null}
+
+V[12:59:39.523] <<< {"id":28,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":2,"line":51},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:39.523] <-- textDocument/hover(28)
+V[12:59:39.524] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:39.525] --> reply:textDocument/hover(28) 1 ms
+V[12:59:39.525] >>> {"id":28,"jsonrpc":"2.0","result":null}
+
+V[12:59:39.973] <<< {"id":29,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":2,"line":51},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:39.973] <-- textDocument/hover(29)
+V[12:59:39.973] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:39.975] --> reply:textDocument/hover(29) 2 ms
+V[12:59:39.975] >>> {"id":29,"jsonrpc":"2.0","result":null}
+
+V[12:59:40.281] <<< {"id":30,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":1,"line":51},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:40.281] <-- textDocument/hover(30)
+V[12:59:40.282] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:40.283] --> reply:textDocument/hover(30) 1 ms
+V[12:59:40.283] >>> {"id":30,"jsonrpc":"2.0","result":null}
+
+V[12:59:42.179] <<< {"id":31,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":2,"line":51},"start":{"character":1,"line":51}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:42.179] <-- textDocument/codeAction(31)
+V[12:59:42.179] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:42.179] --> reply:textDocument/codeAction(31) 0 ms
+V[12:59:42.179] >>> {"id":31,"jsonrpc":"2.0","result":[]}
+
+V[12:59:44.842] <<< {"id":32,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":25,"line":54},"start":{"character":2,"line":51}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:44.842] <-- textDocument/codeAction(32)
+V[12:59:44.845] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:44.845] --> reply:textDocument/codeAction(32) 2 ms
+V[12:59:44.845] >>> {"id":32,"jsonrpc":"2.0","result":[]}
+
+V[12:59:45.177] <<< {"id":33,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":26,"line":54},"start":{"character":2,"line":51}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:45.177] <-- textDocument/codeAction(33)
+V[12:59:45.177] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:45.177] --> reply:textDocument/codeAction(33) 0 ms
+V[12:59:45.177] >>> {"id":33,"jsonrpc":"2.0","result":[]}
+
+V[12:59:47.352] <<< {"id":34,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":26,"line":54},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:47.352] <-- textDocument/hover(34)
+V[12:59:47.352] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:47.357] --> reply:textDocument/hover(34) 4 ms
+V[12:59:47.357] >>> {"id":34,"jsonrpc":"2.0","result":null}
+
+V[12:59:48.223] <<< {"id":35,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":14,"line":53},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:48.224] <-- textDocument/hover(35)
+V[12:59:48.224] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:48.225] --> reply:textDocument/hover(35) 1 ms
+V[12:59:48.225] >>> {"id":35,"jsonrpc":"2.0","result":null}
+
+V[12:59:51.206] <<< {"id":36,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":22,"line":50},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[12:59:51.206] <-- textDocument/hover(36)
+V[12:59:51.208] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[12:59:51.209] --> reply:textDocument/hover(36) 3 ms
+V[12:59:51.209] >>> {"id":36,"jsonrpc":"2.0","result":null}
+
+V[13:01:25.898] <<< {"id":37,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":24,"line":74},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:01:25.898] <-- textDocument/hover(37)
+V[13:01:25.901] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:01:25.902] --> reply:textDocument/hover(37) 4 ms
+V[13:01:25.902] >>> {"id":37,"jsonrpc":"2.0","result":null}
+
+V[13:01:27.346] <<< {"id":38,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":19,"line":75},"start":{"character":19,"line":75}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:01:27.346] <-- textDocument/codeAction(38)
+V[13:01:27.347] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:01:27.347] --> reply:textDocument/codeAction(38) 0 ms
+V[13:01:27.347] >>> {"id":38,"jsonrpc":"2.0","result":[]}
+
+V[13:01:28.625] <<< {"id":39,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":8,"line":66},"start":{"character":6,"line":66}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":68},"start":{"character":4,"line":68}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":71},"start":{"character":2,"line":71}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'File'","range":{"end":{"character":6,"line":73},"start":{"character":2,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":20,"line":73},"start":{"character":18,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'FILE_WRITE'","range":{"end":{"character":51,"line":73},"start":{"character":41,"line":73}},"severity":1,"source":"clang"}]},"range":{"end":{"character":19,"line":75},"start":{"character":3,"line":65}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:01:28.625] <-- textDocument/codeAction(39)
+V[13:01:28.625] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:01:28.634] --> reply:textDocument/codeAction(39) 8 ms
+V[13:01:28.634] >>> {"id":39,"jsonrpc":"2.0","result":[]}
+
+V[13:01:29.150] <<< {"id":40,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":8,"line":66},"start":{"character":6,"line":66}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":13,"line":68},"start":{"character":4,"line":68}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'ledstatus'","range":{"end":{"character":11,"line":71},"start":{"character":2,"line":71}},"severity":1,"source":"clang"},{"code":"unknown_typename","message":"Unknown type name 'File'","range":{"end":{"character":6,"line":73},"start":{"character":2,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'SD'","range":{"end":{"character":20,"line":73},"start":{"character":18,"line":73}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'FILE_WRITE'","range":{"end":{"character":51,"line":73},"start":{"character":41,"line":73}},"severity":1,"source":"clang"}]},"range":{"end":{"character":19,"line":75},"start":{"character":2,"line":65}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:01:29.150] <-- textDocument/codeAction(40)
+V[13:01:29.150] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:01:29.150] --> reply:textDocument/codeAction(40) 0 ms
+V[13:01:29.150] >>> {"id":40,"jsonrpc":"2.0","result":[]}
+
+V[13:01:29.445] <<< {"id":41,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":2,"line":65},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:01:29.445] <-- textDocument/hover(41)
+V[13:01:29.446] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:01:29.447] --> reply:textDocument/hover(41) 1 ms
+V[13:01:29.447] >>> {"id":41,"jsonrpc":"2.0","result":null}
+
+V[13:01:37.646] <<< {"id":42,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":55,"line":74},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:01:37.647] <-- textDocument/hover(42)
+V[13:01:37.651] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:01:37.654] --> reply:textDocument/hover(42) 7 ms
+V[13:01:37.654] >>> {"id":42,"jsonrpc":"2.0","result":null}
+
+V[13:01:38.062] <<< {"id":43,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":24,"line":71},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:01:38.062] <-- textDocument/hover(43)
+V[13:01:38.062] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:01:38.064] --> reply:textDocument/hover(43) 1 ms
+V[13:01:38.064] >>> {"id":43,"jsonrpc":"2.0","result":null}
+
+V[13:02:18.173] <<< {"id":44,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":32,"line":92},"start":{"character":32,"line":92}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:02:18.173] <-- textDocument/codeAction(44)
+V[13:02:18.176] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:02:18.177] --> reply:textDocument/codeAction(44) 3 ms
+V[13:02:18.177] >>> {"id":44,"jsonrpc":"2.0","result":[]}
+
+V[13:02:19.697] <<< {"id":45,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Wire'","range":{"end":{"character":6,"line":90},"start":{"character":2,"line":90}},"severity":1,"source":"clang"}]},"range":{"end":{"character":32,"line":92},"start":{"character":2,"line":89}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:02:19.697] <-- textDocument/codeAction(45)
+V[13:02:19.697] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:02:19.697] --> reply:textDocument/codeAction(45) 0 ms
+V[13:02:19.697] >>> {"id":45,"jsonrpc":"2.0","result":[]}
+
+V[13:02:19.970] <<< {"id":46,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":2,"line":89},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:02:19.970] <-- textDocument/hover(46)
+V[13:02:19.970] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:02:19.972] --> reply:textDocument/hover(46) 2 ms
+V[13:02:19.972] >>> {"id":46,"jsonrpc":"2.0","result":null}
+
+V[13:02:40.970] <<< {"id":47,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":26,"line":108},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:02:40.970] <-- textDocument/hover(47)
+V[13:02:40.974] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:02:40.977] --> reply:textDocument/hover(47) 6 ms
+V[13:02:40.977] >>> {"id":47,"jsonrpc":"2.0","result":null}
+
+V[13:02:41.754] <<< {"id":48,"jsonrpc":"2.0","method":"textDocument/hover","params":{"position":{"character":34,"line":109},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:02:41.754] <-- textDocument/hover(48)
+V[13:02:41.754] ASTWorker running Hover on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:02:41.756] --> reply:textDocument/hover(48) 2 ms
+V[13:02:41.756] >>> {"id":48,"jsonrpc":"2.0","result":null}
+
+V[13:02:57.103] <<< {"id":49,"jsonrpc":"2.0","method":"textDocument/codeAction","params":{"context":{"diagnostics":[]},"range":{"end":{"character":1,"line":137},"start":{"character":1,"line":137}},"textDocument":{"uri":"file:///C:/Users/Anniesh/AppData/Local/Temp/arduino-language-server270391559/sketch/alt_gyro_datalogger.ino.cpp"}}}
+
+I[13:02:57.103] <-- textDocument/codeAction(49)
+V[13:02:57.106] ASTWorker running EnumerateTweaks on version 1 of C:\Users\Anniesh\AppData\Local\Temp\arduino-language-server270391559\sketch\alt_gyro_datalogger.ino.cpp
+I[13:02:57.106] --> reply:textDocument/codeAction(49) 2 ms
+V[13:02:57.106] >>> {"id":49,"jsonrpc":"2.0","result":[]}
+
+V[14:10:51.919] <<< {"id":50,"jsonrpc":"2.0","method":"shutdown","params":null}
+
+I[14:10:51.921] <-- shutdown(50)
+I[14:10:51.921] --> reply:shutdown(50) 0 ms
+V[14:10:51.921] >>> {"id":50,"jsonrpc":"2.0","result":null}
+
+V[14:10:51.925] <<< {"jsonrpc":"2.0","method":"exit","params":null}
+
+I[14:10:51.925] <-- exit
+I[14:10:51.926] LSP finished, exiting with status 0
